@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sourceConfig xmlns:parameter="http://rml/common/parameters/" xmlns:config="http://rml/common/config/" xmlns:html="http://rml/common/placeholders/operators/html/" xmlns:datatype="http://rml/common/datatypes/" xmlns:operator="http://rml/common/placeholders/operators/" xmlns:placeholder="http://rml/common/placeholders/" xmlns:unit="http://rml/common/unit/" xmlns:content="http://rml/common/datatypes/contents/" destinationPath="config.xml" inherited="false" uuid="a4b9e237-fb93-4f26-a58d-a6d606fb0c9a">
+    <config:contentTypeRoot inherited="true" uuid="19c18eb7-1239-42e2-a603-98dcd3ec01d4">
+        <content:contentType destinationPath="./Contents/Item.xml" inherited="true" name="Item" uuid="10a2fac6-a289-467d-8c3f-93e314328674">
+            <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+            <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+            <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+            <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+        </content:contentType>
+        <content:contentType destinationPath="./Contents/Document.xml" inherited="true" inheritedType="d6c75de5-890f-4411-9958-d884b3dd2162" name="Document" uuid="d6c75de5-890f-4411-9958-d884b3dd2162">
+            <content:contentTypeRef contentTypeName="documentItem" uuid="9786c280-5d16-438b-905c-c5f33954a81b"/>
+            <content:contentTypeRef contentTypeName="documentItemList" uuid="b52c2a50-1c5f-43a0-bcf9-74eae8537c4c"/>
+            <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+            <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+            <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+            <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+            <content:fieldRef dataType="UUID" inherited="true" name="docID" uuid="f3854a20-2def-4a18-a932-193c5587e71c"/>
+            <content:fieldRef dataType="TEXT" inherited="true" name="docName" uuid="2515ec0f-0385-478c-8f64-88a44814df1d"/>
+        </content:contentType>
+        <content:contentType destinationPath="./Contents/ItemList.xml" inherited="true" inheritedType="19619951-83ec-4697-a457-3d3490feaea7" name="ItemList" uuid="19619951-83ec-4697-a457-3d3490feaea7">
+            <content:contentTypeRef contentTypeName="item" uuid="9786c280-5d16-438b-905c-c5f33954a81b"/>
+            <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+            <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+            <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+            <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+            <content:fieldRef dataType="UUID" inherited="true" name="listID" uuid="65b6bbf1-696f-4d4f-a694-b1befce7d702"/>
+            <content:fieldRef dataType="TEXT" inherited="true" name="listName" uuid="4785932c-cd3d-427a-b8d0-8bfe005f3b31"/>
+        </content:contentType>
+        <content:contentType destinationPath="./Contents/DocumentItem.xml" inherited="true" inheritedType="9786c280-5d16-438b-905c-c5f33954a81b" name="DocumentItem" uuid="9786c280-5d16-438b-905c-c5f33954a81b">
+            <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+            <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+            <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+            <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+            <content:fieldRef dataType="UUID" inherited="true" name="docID" uuid="f3854a20-2def-4a18-a932-193c5587e71c"/>
+            <content:fieldRef dataType="TEXT" inherited="true" name="docName" uuid="2515ec0f-0385-478c-8f64-88a44814df1d"/>
+        </content:contentType>
+        <content:contentType destinationPath="./Contents/DocumentList.xml" inherited="true" inheritedType="b52c2a50-1c5f-43a0-bcf9-74eae8537c4c" name="DocumentList" uuid="b52c2a50-1c5f-43a0-bcf9-74eae8537c4c">
+            <content:contentTypeRef contentTypeName="item" uuid="9786c280-5d16-438b-905c-c5f33954a81b"/>
+            <content:contentTypeRef contentTypeName="documentItem" uuid="9786c280-5d16-438b-905c-c5f33954a81b"/>
+            <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+            <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+            <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+            <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+            <content:fieldRef dataType="UUID" inherited="true" name="listID" uuid="65b6bbf1-696f-4d4f-a694-b1befce7d702"/>
+            <content:fieldRef dataType="TEXT" inherited="true" name="listName" uuid="4785932c-cd3d-427a-b8d0-8bfe005f3b31"/>
+        </content:contentType>
+        <content:contentType destinationPath="./Contents/Films/Film.xml" inherited="true" inheritedType="5e30577c-a283-4d2b-8c5d-8d56cbbc62fe" name="Film" uuid="5e30577c-a283-4d2b-8c5d-8d56cbbc62fe">
+            <content:contentTypeRef contentTypeName="documentItem" uuid="9786c280-5d16-438b-905c-c5f33954a81b"/>
+            <content:contentTypeRef contentTypeName="documentItemList" uuid="b52c2a50-1c5f-43a0-bcf9-74eae8537c4c"/>
+            <content:contentTypeRef contentTypeName="videoLinks" uuid="276c2242-f100-4cad-9f36-6ba2611fe9ec"/>
+            <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+            <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+            <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+            <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+            <content:fieldRef dataType="UUID" inherited="true" name="docID" uuid="f3854a20-2def-4a18-a932-193c5587e71c"/>
+            <content:fieldRef dataType="TEXT" inherited="true" name="docName" uuid="2515ec0f-0385-478c-8f64-88a44814df1d"/>
+            <content:fieldRef dataType="TEXT" name="title" uuid="40fb9c90-6239-4caa-ab6d-009d0f4093e4"/>
+            <content:fieldRef dataType="TEXT" multiValued="true" name="genres" uuid="dac4f221-4579-48b2-be24-3c3b97255aca"/>
+            <content:fieldRef dataType="TEXT" name="sinopsis" uuid="8cfe9b77-0e5a-4e5e-9509-a1433bf0fe3e"/>
+            <content:fieldRef dataType="IMAGE" name="cover" uuid="a0d446b8-316f-431f-86d4-5ba261b7fbbc"/>
+        </content:contentType>
+        <content:contentType destinationPath="./Contents/Link.xml" inherited="true" inheritedType="5b5f13d4-10f2-4808-b424-4771613eb657" name="Link" uuid="5b5f13d4-10f2-4808-b424-4771613eb657">
+            <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+            <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+            <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+            <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+            <content:fieldRef dataType="UUID" inherited="true" name="docID" uuid="f3854a20-2def-4a18-a932-193c5587e71c"/>
+            <content:fieldRef dataType="TEXT" inherited="true" name="docName" uuid="2515ec0f-0385-478c-8f64-88a44814df1d"/>
+            <content:fieldRef dataType="LINK" name="httpAddress" uuid="4b7dc65e-c22f-4f05-8b56-02fc5b8a19ff"/>
+        </content:contentType>
+        <content:contentType destinationPath="./Contents/Films/FilmLink.xml" inherited="true" inheritedType="0c8b7919-75cb-445c-be1f-89c72a90f739" name="FilmLink" uuid="0c8b7919-75cb-445c-be1f-89c72a90f739">
+            <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+            <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+            <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+            <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+            <content:fieldRef dataType="UUID" inherited="true" name="docID" uuid="f3854a20-2def-4a18-a932-193c5587e71c"/>
+            <content:fieldRef dataType="TEXT" inherited="true" name="docName" uuid="2515ec0f-0385-478c-8f64-88a44814df1d"/>
+            <content:fieldRef dataType="LINK" name="httpAddress" uuid="4b7dc65e-c22f-4f05-8b56-02fc5b8a19ff"/>
+            <content:fieldRef dataType="TEXT" name="quality" uuid="8b569493-f54a-4832-8072-32a073301ab5"/>
+            <content:fieldRef dataType="TEXT" name="language" uuid="851c47fb-13d2-4e7b-890f-4f448d60f60a"/>
+            <content:fieldRef dataType="TEXT" name="server" uuid="8b40bb81-45b7-4da2-9090-29929ec26293"/>
+        </content:contentType>
+        <content:contentType destinationPath="./Contents/Films/FilmLinks.xml" inherited="true" inheritedType="276c2242-f100-4cad-9f36-6ba2611fe9ec" name="FilmLinks" uuid="276c2242-f100-4cad-9f36-6ba2611fe9ec">
+            <content:contentTypeRef contentTypeName="item" uuid="9786c280-5d16-438b-905c-c5f33954a81b"/>
+            <content:contentTypeRef contentTypeName="FilmLinks" uuid="0c8b7919-75cb-445c-be1f-89c72a90f739"/>
+            <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+            <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+            <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+            <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+            <content:fieldRef dataType="UUID" inherited="true" name="listID" uuid="65b6bbf1-696f-4d4f-a694-b1befce7d702"/>
+            <content:fieldRef dataType="TEXT" inherited="true" name="listName" uuid="4785932c-cd3d-427a-b8d0-8bfe005f3b31"/>
+        </content:contentType>
+        <content:contentType destinationPath="./Contents/Image.xml" inherited="true" inheritedType="c2f97d8c-222f-4550-9973-b34fd9ca1a46" name="Image" uuid="c2f97d8c-222f-4550-9973-b34fd9ca1a46">
+            <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+            <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+            <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+            <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+            <content:fieldRef dataType="UUID" inherited="true" name="docID" uuid="f3854a20-2def-4a18-a932-193c5587e71c"/>
+            <content:fieldRef dataType="TEXT" inherited="true" name="docName" uuid="2515ec0f-0385-478c-8f64-88a44814df1d"/>
+            <content:fieldRef dataType="BASE64" name="stringBase64" uuid="8d4c52d1-f213-4940-b9ec-47eb9668d702"/>
+        </content:contentType>
+        <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+        <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+        <content:fieldRef dataType="LINK" name="httpAddress" uuid="4b7dc65e-c22f-4f05-8b56-02fc5b8a19ff"/>
+        <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+        <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+        <content:fieldRef dataType="BASE64" name="stringBase64" uuid="8d4c52d1-f213-4940-b9ec-47eb9668d702"/>
+        <content:fieldRef dataType="IMAGE" name="cover" uuid="a0d446b8-316f-431f-86d4-5ba261b7fbbc"/>
+        <content:fieldRef dataType="TEXT" multiValued="true" name="genres" uuid="dac4f221-4579-48b2-be24-3c3b97255aca"/>
+        <content:fieldRef dataType="TEXT" name="sinopsis" uuid="8cfe9b77-0e5a-4e5e-9509-a1433bf0fe3e"/>
+        <content:fieldRef dataType="TEXT" name="title" uuid="40fb9c90-6239-4caa-ab6d-009d0f4093e4"/>
+        <content:fieldRef dataType="TEXT" name="language" uuid="851c47fb-13d2-4e7b-890f-4f448d60f60a"/>
+        <content:fieldRef dataType="TEXT" name="quality" uuid="8b569493-f54a-4832-8072-32a073301ab5"/>
+        <content:fieldRef dataType="TEXT" name="server" uuid="8b40bb81-45b7-4da2-9090-29929ec26293"/>
+    </config:contentTypeRoot>
+    <config:dataSource inherited="true" uuid="963a06a2-3d03-489f-be89-123e6d824b12">
+        <datatype:action strictMode="true" uuid="f7495e60-f60a-4dd3-847c-7c6c2f75aa0c">
+            <unit:httpAddress>[@server_url][@start_url]</unit:httpAddress>
+            <unit:webOptions>
+                <unit:activeXNativeEnabled>false</unit:activeXNativeEnabled>
+                <unit:appletEnabled>false</unit:appletEnabled>
+                <unit:browserVersion>FIREFOX_17</unit:browserVersion>
+                <unit:cssEnabled>false</unit:cssEnabled>
+                <unit:javaScriptEnabled>false</unit:javaScriptEnabled>
+                <unit:paginatorEnabled>false</unit:paginatorEnabled>
+                <unit:periodTime>5000</unit:periodTime>
+                <unit:popupBlockerEnabled>true</unit:popupBlockerEnabled>
+            </unit:webOptions>
+        </datatype:action>
+        <datatype:contentTypeRef contentTypeName="Film" inherited="true" uuid="5e30577c-a283-4d2b-8c5d-8d56cbbc62fe"/>
+        <datatype:documentRoot inherited="true" uuid="fae6220f-52ce-4db9-8ae4-01bd1675c3c8">
+            <datatype:document inherited="true" uuid="38280496-cf39-4802-9b0a-33631d573e5f">
+                <datatype:action strictMode="true" uuid="28b4f230-1f79-4248-91ff-40aa9fdf3fba">
+                    <unit:bwords paramName="[@bword]" paramType="href-banned" uuid="37c3f5a6-a50c-4a48-b8ac-02add2379628" value="genero-"/>
+                    <unit:httpAddress>[@server_url][@start_url][@action]</unit:httpAddress>
+                    <unit:webOptions>
+                        <unit:activeXNativeEnabled>false</unit:activeXNativeEnabled>
+                        <unit:appletEnabled>false</unit:appletEnabled>
+                        <unit:browserVersion>FIREFOX_17</unit:browserVersion>
+                        <unit:cssEnabled>false</unit:cssEnabled>
+                        <unit:javaScriptEnabled>false</unit:javaScriptEnabled>
+                        <unit:paginator>
+                            <unit:anchorValue>Siguiente &gt;&gt;</unit:anchorValue>
+                            <unit:paginatorIncrement>1</unit:paginatorIncrement>
+                        </unit:paginator>
+                        <unit:paginatorEnabled>true</unit:paginatorEnabled>
+                        <unit:periodTime>5000</unit:periodTime>
+                        <unit:popupBlockerEnabled>false</unit:popupBlockerEnabled>
+                        <unit:type>GET</unit:type>
+                    </unit:webOptions>
+                </datatype:action>
+                <datatype:document inherited="true" uuid="a1a3e5da-7e48-441d-b09a-f252451ddf22">
+                    <datatype:action strictMode="false" uuid="9636f214-9772-4768-ad70-bb6c33fc0167">
+                        <unit:constants paramName="[@constant]" paramType="href-constant" uuid="7d457e35-78d1-4f69-b68c-0bb520162a17" value="torrent/"/>
+                        <unit:httpAddress>[@server_url][@start_url][@constant][@action]</unit:httpAddress>
+                        <unit:webOptions>
+                            <unit:activeXNativeEnabled>false</unit:activeXNativeEnabled>
+                            <unit:appletEnabled>false</unit:appletEnabled>
+                            <unit:browserVersion>FIREFOX_17</unit:browserVersion>
+                            <unit:cssEnabled>false</unit:cssEnabled>
+                            <unit:javaScriptEnabled>false</unit:javaScriptEnabled>
+                            <unit:paginatorEnabled>false</unit:paginatorEnabled>
+                            <unit:periodTime>5000</unit:periodTime>
+                            <unit:popupBlockerEnabled>true</unit:popupBlockerEnabled>
+                        </unit:webOptions>
+                    </datatype:action>
+                    <datatype:fieldRoot inherited="true" uuid="3e19d97a-47e4-45b2-8e72-a09c7a08167e">
+                        <datatype:field uuid="aa098e22-2f9c-4888-9f91-c39b5b1d3bb0">
+                            <datatype:fieldName>DV_FIELDNAME_2</datatype:fieldName>
+                            <datatype:httpAddress inherited="true" uuid="c82272fd-4771-4050-b304-a73dffcb9e76">
+<placeholder:remove inherited="true" uuid="3f09b46e-0230-4d16-8ceb-6f2c34610c9c">
+    <operator:endIndex>
+        <operator:stringValue>holalalalala</operator:stringValue>
+    </operator:endIndex>
+    <operator:startIndex>
+        <operator:stringValue>Adeueueueueueu</operator:stringValue>
+    </operator:startIndex>
+</placeholder:remove>
+                            </datatype:httpAddress>
+                        </datatype:field>
+                    </datatype:fieldRoot>
+                </datatype:document>
+                <datatype:fieldRoot inherited="true" uuid="283baf76-8571-49cf-8a57-e8724a282d0b">
+                    <datatype:field uuid="c6b6e6e0-7f81-4350-93e4-e2d948ab941b">
+                        <datatype:fieldName>DV_FIELDNAME_1</datatype:fieldName>
+                        <datatype:fieldType>TEXT</datatype:fieldType>
+                        <datatype:htmlUnit inherited="true" uuid="f00fab5e-7f5f-432d-9bc7-68c1b3247544">
+                            <placeholder:contains inherited="true" uuid="f39fc767-2ee0-492d-bb21-485a0d575dbe">
+<operator:value>OLA</operator:value>
+                            </placeholder:contains>
+                            <placeholder:replace inherited="true" uuid="819eb13b-91a2-46c0-a90f-5a088c20cf90">
+<operator:newString>HOLA</operator:newString>
+<operator:oldString>ADEU</operator:oldString>
+                            </placeholder:replace>
+                        </datatype:htmlUnit>
+                    </datatype:field>
+                    <datatype:field uuid="aa098e22-2f9c-4888-9f91-c39b5b1d3bb0">
+                        <datatype:fieldName>DV_FIELDNAME_2</datatype:fieldName>
+                        <datatype:httpAddress inherited="true" uuid="c82272fd-4771-4050-b304-a73dffcb9e76">
+                            <placeholder:remove inherited="true" uuid="3f09b46e-0230-4d16-8ceb-6f2c34610c9c">
+<operator:endIndex>
+    <operator:stringValue>holalalalala</operator:stringValue>
+</operator:endIndex>
+<operator:startIndex>
+    <operator:stringValue>Adeueueueueueu</operator:stringValue>
+</operator:startIndex>
+                            </placeholder:remove>
+                        </datatype:httpAddress>
+                    </datatype:field>
+                </datatype:fieldRoot>
+            </datatype:document>
+        </datatype:documentRoot>
+        <datatype:serverUrl paramName="[@server_url]" paramType="href-constant" uuid="62c95315-aa93-4626-8748-35a8ae374fc1" value="http://www.divxtotal.com/"/>
+        <datatype:sourceName>divxTotal</datatype:sourceName>
+        <datatype:startUrl inherited="true" paramName="[@start_url]" paramType="href-constant" uuid="a126145b-5d53-48fa-ba83-18f6e1dfa73a" value="peliculas/"/>
+    </config:dataSource>
+    <config:dataSource inherited="true" uuid="a0597f59-6192-4ae9-9e13-b74946866dae">
+        <datatype:action strictMode="true" uuid="7b9761cc-735a-4e44-8364-140f5ea9c247">
+            <unit:httpAddress>[@server_url][@start_url]</unit:httpAddress>
+            <unit:webOptions>
+                <unit:activeXNativeEnabled>false</unit:activeXNativeEnabled>
+                <unit:appletEnabled>false</unit:appletEnabled>
+                <unit:browserVersion>FIREFOX_17</unit:browserVersion>
+                <unit:cssEnabled>false</unit:cssEnabled>
+                <unit:javaScriptEnabled>false</unit:javaScriptEnabled>
+                <unit:paginatorEnabled>false</unit:paginatorEnabled>
+                <unit:periodTime>5000</unit:periodTime>
+                <unit:popupBlockerEnabled>false</unit:popupBlockerEnabled>
+                <unit:type>GET</unit:type>
+            </unit:webOptions>
+        </datatype:action>
+        <datatype:contentTypeRef contentTypeName="Film" inherited="true" uuid="5e30577c-a283-4d2b-8c5d-8d56cbbc62fe"/>
+        <datatype:documentRoot inherited="true" uuid="90fbbdeb-ecbb-4052-8155-8108eaf71e34">
+            <datatype:document inherited="true" uuid="b2e73cc0-6b12-4347-b5d4-d3d375dcce2b">
+                <datatype:action strictMode="true" uuid="252ed0a7-fcb9-4e58-8434-95ec58dfe26e">
+                    <unit:bwords paramName="[@bword]" paramType="href-banned" uuid="81d36263-e2b9-47b0-ad57-f585ef79f5ef" value="genero-"/>
+                    <unit:httpAddress>[@server_url][@start_url][@action]</unit:httpAddress>
+                    <unit:webOptions>
+                        <unit:activeXNativeEnabled>false</unit:activeXNativeEnabled>
+                        <unit:appletEnabled>false</unit:appletEnabled>
+                        <unit:browserVersion>FIREFOX_17</unit:browserVersion>
+                        <unit:cssEnabled>false</unit:cssEnabled>
+                        <unit:javaScriptEnabled>false</unit:javaScriptEnabled>
+                        <unit:paginator>
+                            <unit:anchorValue>&gt;</unit:anchorValue>
+                            <unit:paginatorIncrement>1</unit:paginatorIncrement>
+                        </unit:paginator>
+                        <unit:paginatorEnabled>true</unit:paginatorEnabled>
+                        <unit:periodTime>5000</unit:periodTime>
+                        <unit:popupBlockerEnabled>false</unit:popupBlockerEnabled>
+                        <unit:type>GET</unit:type>
+                    </unit:webOptions>
+                </datatype:action>
+                <datatype:document inherited="true" uuid="9a81abae-5112-4642-bbbd-3d7c3ea71642">
+                    <datatype:action strictMode="false" uuid="2b3bcd06-ee18-4645-975f-117fc449e4fb">
+                        <unit:constants paramName="[@constant]" paramType="href-constant" uuid="f94aab02-10f9-4021-a9ba-17d6eced4611" value="pelicula/"/>
+                        <unit:httpAddress>[@server_url][@constant][@action]</unit:httpAddress>
+                        <unit:webOptions>
+                            <unit:activeXNativeEnabled>false</unit:activeXNativeEnabled>
+                            <unit:appletEnabled>false</unit:appletEnabled>
+                            <unit:browserVersion>FIREFOX_17</unit:browserVersion>
+                            <unit:cssEnabled>false</unit:cssEnabled>
+                            <unit:javaScriptEnabled>false</unit:javaScriptEnabled>
+                            <unit:paginatorEnabled>false</unit:paginatorEnabled>
+                            <unit:periodTime>5000</unit:periodTime>
+                            <unit:popupBlockerEnabled>false</unit:popupBlockerEnabled>
+                            <unit:type>GET</unit:type>
+                        </unit:webOptions>
+                    </datatype:action>
+                    <datatype:document inherited="true" uuid="3ae266f7-5a98-421a-bc84-cb3380bf5a6d">
+                        <datatype:action inherited="true" uuid="caf440a8-dc71-4e54-829d-56c1070de519">
+                            <unit:constants paramName="[@constant]" paramType="href-constant" uuid="9126b4b2-a9f6-4260-a2c3-3141f1a6fa82" value="pelicula/"/>
+                            <unit:httpAddress>[@server_url][@constant][@action]</unit:httpAddress>
+                            <unit:webOptions inherited="true" uuid="59566335-4e89-4b7c-af1b-b2a4b7d82065">
+<unit:activeXNativeEnabled>false</unit:activeXNativeEnabled>
+<unit:appletEnabled>false</unit:appletEnabled>
+<unit:browserVersion>FIREFOX_17</unit:browserVersion>
+<unit:cssEnabled>false</unit:cssEnabled>
+<unit:javaScriptEnabled>false</unit:javaScriptEnabled>
+<unit:paginatorEnabled>false</unit:paginatorEnabled>
+<unit:periodTime>5000</unit:periodTime>
+<unit:popupBlockerEnabled>false</unit:popupBlockerEnabled>
+<unit:type>GET</unit:type>
+                            </unit:webOptions>
+                        </datatype:action>
+                    </datatype:document>
+                    <datatype:fieldRoot inherited="true" uuid="98370729-0a8b-4178-a68c-6c43f3c88008">
+                        <datatype:field>
+                            <datatype:fieldName>DV_FIELDNAME_2</datatype:fieldName>
+                            <datatype:fieldType>LINK</datatype:fieldType>
+                            <datatype:httpAddress inherited="true" uuid="170090ed-49a5-4ee4-b964-d23bd70387bb">
+<placeholder:remove inherited="true" uuid="25a10152-b57b-4a4e-858f-afeb879d71d8">
+    <operator:endIndex>
+        <operator:stringValue>holalalalala</operator:stringValue>
+    </operator:endIndex>
+    <operator:startIndex>
+        <operator:stringValue>Adeueueueueueu</operator:stringValue>
+    </operator:startIndex>
+</placeholder:remove>
+                            </datatype:httpAddress>
+                        </datatype:field>
+                    </datatype:fieldRoot>
+                </datatype:document>
+                <datatype:fieldRoot inherited="true" uuid="cb6a9e3a-2da3-497b-8a04-bb05194ce85d">
+                    <datatype:field>
+                        <datatype:fieldName>DV_FIELDNAME_1</datatype:fieldName>
+                        <datatype:fieldType>TEXT</datatype:fieldType>
+                        <datatype:htmlUnit inherited="true" uuid="93767f9d-c762-49c5-978f-2d6775c68a5b">
+                            <placeholder:contains inherited="true" uuid="77900215-bb20-4536-b798-eb54fb6c4f52">
+<operator:value>OLA</operator:value>
+                            </placeholder:contains>
+                            <placeholder:replace inherited="true" uuid="b673dcc1-c053-464d-b6fe-2c5d4cdb2c17">
+<operator:newString>HOLA</operator:newString>
+<operator:oldString>ADEU</operator:oldString>
+                            </placeholder:replace>
+                        </datatype:htmlUnit>
+                    </datatype:field>
+                    <datatype:field>
+                        <datatype:fieldName>DV_FIELDNAME_2</datatype:fieldName>
+                        <datatype:fieldType>LINK</datatype:fieldType>
+                        <datatype:httpAddress inherited="true" uuid="170090ed-49a5-4ee4-b964-d23bd70387bb">
+                            <placeholder:remove inherited="true" uuid="25a10152-b57b-4a4e-858f-afeb879d71d8">
+<operator:endIndex>
+    <operator:stringValue>holalalalala</operator:stringValue>
+</operator:endIndex>
+<operator:startIndex>
+    <operator:stringValue>Adeueueueueueu</operator:stringValue>
+</operator:startIndex>
+                            </placeholder:remove>
+                        </datatype:httpAddress>
+                    </datatype:field>
+                </datatype:fieldRoot>
+            </datatype:document>
+        </datatype:documentRoot>
+        <datatype:serverUrl paramName="[@server_url]" paramType="href-constant" uuid="ff385d21-2e24-4b2c-932d-ebbd212ad836" value="http://www.peliculasyonkis.com/"/>
+        <datatype:sourceName>peliculasYonkis</datatype:sourceName>
+        <datatype:startUrl inherited="true" paramName="[@start_url]" paramType="href-constant" uuid="3fabf4f9-eded-4f73-9255-0e9df80f1ebf" value="lista-de-peliculas/"/>
+    </config:dataSource>
+    <config:dataSource inherited="true" uuid="e5e5fb4c-32b2-40aa-9aae-43028e883544">
+        <datatype:action strictMode="true" uuid="ff3a5f3d-6d37-4531-8829-5c19e3d35939">
+            <unit:httpAddress>http://www,[@server_url][@start_url]</unit:httpAddress>
+            <unit:webOptions>
+                <unit:activeXNativeEnabled>false</unit:activeXNativeEnabled>
+                <unit:appletEnabled>false</unit:appletEnabled>
+                <unit:browserVersion>FIREFOX_17</unit:browserVersion>
+                <unit:cssEnabled>true</unit:cssEnabled>
+                <unit:javaScriptEnabled>true</unit:javaScriptEnabled>
+                <unit:paginatorEnabled>true</unit:paginatorEnabled>
+                <unit:periodTime>5000</unit:periodTime>
+                <unit:popupBlockerEnabled>false</unit:popupBlockerEnabled>
+            </unit:webOptions>
+        </datatype:action>
+        <datatype:contentTypeRef contentTypeName="Film" inherited="true" uuid="5e30577c-a283-4d2b-8c5d-8d56cbbc62fe"/>
+        <datatype:documentRoot inherited="true" uuid="1792fe5e-bf04-43a3-87bd-af4e868be96e">
+            <datatype:document inherited="true" uuid="fb0ae23d-10a5-4cff-9481-39bc24144950">
+                <datatype:action strictMode="true" uuid="0176b2b5-8050-4918-8b6d-d0b0b294be62">
+                    <unit:bwords paramName="[@bword]" paramType="href-banned" uuid="50db32f9-80d7-4482-8f75-6ed495a7fa72" value="genero-"/>
+                    <unit:httpAddress>[@action][@server_url]</unit:httpAddress>
+                    <unit:webOptions>
+                        <unit:activeXNativeEnabled>false</unit:activeXNativeEnabled>
+                        <unit:appletEnabled>false</unit:appletEnabled>
+                        <unit:browserVersion>FIREFOX_17</unit:browserVersion>
+                        <unit:cssEnabled>true</unit:cssEnabled>
+                        <unit:javaScriptEnabled>true</unit:javaScriptEnabled>
+                        <unit:paginatorEnabled>true</unit:paginatorEnabled>
+                        <unit:periodTime>5000</unit:periodTime>
+                        <unit:popupBlockerEnabled>false</unit:popupBlockerEnabled>
+                    </unit:webOptions>
+                </datatype:action>
+                <datatype:document inherited="true" uuid="74dd96db-60ed-4406-9630-5510ff92cb91">
+                    <datatype:action strictMode="false" uuid="6a5ec4a1-71bd-47b1-82f9-97e03191f765">
+                        <unit:constants paramName="[@constant]" paramType="href-constant" uuid="be7f5f2b-1142-4677-aefc-851466d8ee5c" value="enlaces/"/>
+                        <unit:httpAddress>[@current][@constant][@action]</unit:httpAddress>
+                        <unit:webOptions>
+                            <unit:activeXNativeEnabled>false</unit:activeXNativeEnabled>
+                            <unit:appletEnabled>false</unit:appletEnabled>
+                            <unit:browserVersion>FIREFOX_17</unit:browserVersion>
+                            <unit:cssEnabled>true</unit:cssEnabled>
+                            <unit:javaScriptEnabled>true</unit:javaScriptEnabled>
+                            <unit:paginatorEnabled>true</unit:paginatorEnabled>
+                            <unit:periodTime>5000</unit:periodTime>
+                            <unit:popupBlockerEnabled>false</unit:popupBlockerEnabled>
+                        </unit:webOptions>
+                    </datatype:action>
+                    <datatype:fieldRoot inherited="true" uuid="42e5564b-a202-4f67-904b-08e93fef9220">
+                        <datatype:field>
+                            <datatype:fieldName>DV_FIELDNAME_2</datatype:fieldName>
+                            <datatype:fieldType>LINK</datatype:fieldType>
+                            <datatype:httpAddress inherited="true" uuid="ed09ab3b-4786-4e7f-a651-8284209cbc46">
+<placeholder:remove inherited="true" uuid="a8d90248-9471-4295-b970-5c6c6e0d7119">
+    <operator:endIndex>
+        <operator:stringValue>holalalalala</operator:stringValue>
+    </operator:endIndex>
+    <operator:startIndex>
+        <operator:stringValue>Adeueueueueueu</operator:stringValue>
+    </operator:startIndex>
+</placeholder:remove>
+                            </datatype:httpAddress>
+                        </datatype:field>
+                    </datatype:fieldRoot>
+                </datatype:document>
+                <datatype:fieldRoot inherited="true" uuid="77ec6aa7-922a-4813-9ee7-852c3a421a33">
+                    <datatype:field>
+                        <datatype:fieldName>DV_FIELDNAME_1</datatype:fieldName>
+                        <datatype:fieldType>TEXT</datatype:fieldType>
+                        <datatype:htmlUnit inherited="true" uuid="5847f0e6-261e-4c02-a60c-b9b1494766f0">
+                            <placeholder:contains inherited="true" uuid="11d67824-337c-491e-829a-a09383d23264">
+<operator:value>OLA</operator:value>
+                            </placeholder:contains>
+                            <placeholder:replace inherited="true" uuid="4f6676bf-8fce-4062-8489-03a29106f7f9">
+<operator:newString>HOLA</operator:newString>
+<operator:oldString>ADEU</operator:oldString>
+                            </placeholder:replace>
+                        </datatype:htmlUnit>
+                    </datatype:field>
+                    <datatype:field>
+                        <datatype:fieldName>DV_FIELDNAME_2</datatype:fieldName>
+                        <datatype:fieldType>LINK</datatype:fieldType>
+                        <datatype:httpAddress inherited="true" uuid="ed09ab3b-4786-4e7f-a651-8284209cbc46">
+                            <placeholder:remove inherited="true" uuid="a8d90248-9471-4295-b970-5c6c6e0d7119">
+<operator:endIndex>
+    <operator:stringValue>holalalalala</operator:stringValue>
+</operator:endIndex>
+<operator:startIndex>
+    <operator:stringValue>Adeueueueueueu</operator:stringValue>
+</operator:startIndex>
+                            </placeholder:remove>
+                        </datatype:httpAddress>
+                    </datatype:field>
+                </datatype:fieldRoot>
+            </datatype:document>
+        </datatype:documentRoot>
+        <datatype:serverUrl paramName="[@server_url]" paramType="href-constant" uuid="512166a3-cb03-4764-9adf-db4053f457be" value="peliculaspepito.com/"/>
+        <datatype:sourceName>peliculasPepito</datatype:sourceName>
+        <datatype:startUrl inherited="true" paramName="[@start_url]" paramType="href-constant" uuid="b5f418ec-a0c7-489e-867d-6522e42d5a1d" value="peliculas/"/>
+    </config:dataSource>
+    <config:runtimeOptions>[CLIENT_CHECK, DATA_CHECK, INET_CHECK, RML_CHECK, UI_CHECK]</config:runtimeOptions>
+</sourceConfig>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:film xmlns:contents="http://rml/core/contents/" xmlns:ns2="http://rml/core/contents/films/" xmlns:content="http://rml/common/datatypes/contents/" destinationPath="./Contents/Films/Film.xml" inherited="true" inheritedType="5e30577c-a283-4d2b-8c5d-8d56cbbc62fe" name="Film" uuid="5e30577c-a283-4d2b-8c5d-8d56cbbc62fe">
+    <content:contentTypeRef contentTypeName="documentItem" uuid="9786c280-5d16-438b-905c-c5f33954a81b"/>
+    <content:contentTypeRef contentTypeName="documentItemList" uuid="b52c2a50-1c5f-43a0-bcf9-74eae8537c4c"/>
+    <content:contentTypeRef contentTypeName="videoLinks" uuid="276c2242-f100-4cad-9f36-6ba2611fe9ec"/>
+    <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+    <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+    <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+    <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+    <content:fieldRef dataType="UUID" inherited="true" name="docID" uuid="f3854a20-2def-4a18-a932-193c5587e71c"/>
+    <content:fieldRef dataType="TEXT" inherited="true" name="docName" uuid="2515ec0f-0385-478c-8f64-88a44814df1d"/>
+    <content:fieldRef dataType="TEXT" name="title" uuid="40fb9c90-6239-4caa-ab6d-009d0f4093e4"/>
+    <content:fieldRef dataType="TEXT" multiValued="true" name="genres" uuid="dac4f221-4579-48b2-be24-3c3b97255aca"/>
+    <content:fieldRef dataType="TEXT" name="sinopsis" uuid="8cfe9b77-0e5a-4e5e-9509-a1433bf0fe3e"/>
+    <content:fieldRef dataType="IMAGE" name="cover" uuid="a0d446b8-316f-431f-86d4-5ba261b7fbbc"/>
+</ns2:film>

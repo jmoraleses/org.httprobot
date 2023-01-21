@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contents:videoLink xmlns:contents="http://httprobot/rml/datatypes/contents/films/" xmlns:ns2="http://httprobot/rml/datatypes/contents/" inheritedType="5b5f13d4-10f2-4808-b424-4771613eb657" name="FilmLink" destinationPath="./Contents/Films/VideoLink.xml" inherited="true" uuid="0c8b7919-75cb-445c-be1f-89c72a90f739">
+    <ns2:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+    <ns2:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+    <ns2:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+    <ns2:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+    <ns2:fieldRef dataType="LINK" name="httpAddress" uuid="4b7dc65e-c22f-4f05-8b56-02fc5b8a19ff"/>
+    <ns2:fieldRef dataType="TEXT" name="quality" uuid="8b569493-f54a-4832-8072-32a073301ab5"/>
+    <ns2:fieldRef dataType="TEXT" name="language" uuid="851c47fb-13d2-4e7b-890f-4f448d60f60a"/>
+    <ns2:fieldRef dataType="TEXT" name="server" uuid="8b40bb81-45b7-4da2-9090-29929ec26293"/>
+</contents:videoLink>

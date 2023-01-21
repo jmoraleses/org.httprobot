@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/home/joan/Projectes/HttpRobot/Lib/jdk1.7.0_45/jre/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.httprobot.common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.httprobot.core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.httprobot.core.contents"/>
+	<classpathentry kind="lib" path="/home/joan/Projectes/Lib/htmlunit-2.13/lib/htmlunit-2.13.jar" sourcepath="/home/joan/Projectes/Lib/htmlunit-2.13/src">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/home/joan/Projectes/Lib/htmlunit-2.13/apidocs/"/>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/home/joan/Projectes/Lib/solr-4.6.1/dist/solr-solrj-4.6.1.jar" sourcepath="/home/joan/Projectes/Lib/solr-4.6.1/solr/solrj">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/home/joan/Projectes/Lib/solr-4.6.1/docs/solr-solrj/"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="../"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
