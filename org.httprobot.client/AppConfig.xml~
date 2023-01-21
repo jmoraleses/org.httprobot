@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config:appConfig xmlns:config="http://httprobot/rml/config/" destinationPath="AppConfig.xml" uuid="30a68473-ac74-4335-bde1-a4dcf14edeff" inherited="true" >
+	<config:runtimeOptions>[RML_CHECK, SERVER_CHECK, SHOW_LOAD_EVENTS, SHOW_RENDER_EVENTS, THROW_EXCEPTIONS]</config:runtimeOptions>
+    <config:configFilePath>config.xml</config:configFilePath>
+    <config:logFilePath>log.xml</config:logFilePath>
+    <config:serviceConnection inherited="true">
+        <config:QName inherited="true" localPart="RobotSourceService" namespaceURI="http://server.httprobot.org/" prefix=""/>
+        <config:url file="/ws/server?wsdl" host="localhost" inherited="true" port="8888" protocol="http" url="http://localhost:8888/ws/server?wsdl"/>
+    </config:serviceConnection>
+</config:appConfig>

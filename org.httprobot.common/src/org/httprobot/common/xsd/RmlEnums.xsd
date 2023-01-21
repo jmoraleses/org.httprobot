@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="rmlDataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="STRING"/>
+      <xs:enumeration value="NUMBER"/>
+      <xs:enumeration value="DATETIME"/>
+      <xs:enumeration value="BOOLEAN"/>
+      <xs:enumeration value="BYTEARRAY"/>
+      <xs:enumeration value="IMAGE"/>
+      <xs:enumeration value="LINK"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rmlActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GET"/>
+      <xs:enumeration value="POST"/>
+      <xs:enumeration value="AJAX"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

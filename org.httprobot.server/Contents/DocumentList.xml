@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contents:documentItemList xmlns:contents="http://rml/core/contents/" xmlns:content="http://rml/common/datatypes/contents/" destinationPath="./Contents/DocumentList.xml" inherited="true" inheritedType="b52c2a50-1c5f-43a0-bcf9-74eae8537c4c" name="DocumentList" uuid="b52c2a50-1c5f-43a0-bcf9-74eae8537c4c">
+    <content:contentTypeRef contentTypeName="item" uuid="9786c280-5d16-438b-905c-c5f33954a81b"/>
+    <content:contentTypeRef contentTypeName="documentItem" uuid="9786c280-5d16-438b-905c-c5f33954a81b"/>
+    <content:fieldRef dataType="DATETIME" name="created" uuid="280bb3f0-fd70-4b5f-9ef3-fdd4575c57d7"/>
+    <content:fieldRef dataType="DATETIME" name="modified" uuid="976ec1a3-a8f3-4709-a279-8ec2f08238cc"/>
+    <content:fieldRef dataType="TEXT" name="createdBy" uuid="d5734db1-9359-4c77-9990-a53633ef8eb1"/>
+    <content:fieldRef dataType="TEXT" name="modifiedBy" uuid="59d4957d-d204-42bb-b44f-6725450124a0"/>
+    <content:fieldRef dataType="UUID" inherited="true" name="listID" uuid="65b6bbf1-696f-4d4f-a694-b1befce7d702"/>
+    <content:fieldRef dataType="TEXT" inherited="true" name="listName" uuid="4785932c-cd3d-427a-b8d0-8bfe005f3b31"/>
+</contents:documentItemList>
