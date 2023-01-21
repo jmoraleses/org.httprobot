@@ -1,0 +1,196 @@
+package org.httprobot.client.managers;
+
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.Vector;
+
+import org.httprobot.common.definitions.Enums.CliNamespace;
+import org.httprobot.common.definitions.Enums.CliOptions;
+import org.httprobot.common.definitions.Enums.InetEventType;
+import org.httprobot.common.events.CliEventArgs;
+import org.httprobot.common.events.RmlEventArgs;
+import org.httprobot.common.interfaces.IRmlListener;
+import org.httprobot.common.rml.config.Config;
+import org.httprobot.core.events.InetEventArgs;
+import org.httprobot.core.events.ProgramDataEventArgs;
+import org.httprobot.core.events.WebRequesterEventArgs;
+import org.httprobot.core.inet.Requester;
+import org.httprobot.core.interfaces.IDataListener;
+import org.httprobot.core.interfaces.IInetListener;
+import org.httprobot.core.interfaces.IRequesterListener;
+import org.w3c.dom.events.Event;
+/**
+ * Internet manager class. 
+ * Inherits {@link Manager} with {@link IInetListener}.
+ * @author Joan
+*/
+public class InetManager extends Manager<IInetListener> implements IRequesterListener, IDataListener
+{
+	private static final CliNamespace cliNamespace = CliNamespace.INET;
+	
+	private EnumSet<CliOptions> options = null;
+	private Vector<Requester> requesters;	
+	private String destination_path = null;
+	/**
+	 * InetManager Listeners
+	 */
+	private Vector<IInetListener> inet_listeners = null;
+	/**
+	 * Adds {@link IInetListener} Internet manager event listener.
+	 * @param listener {@link IInetListener} the listener
+	 */
+	public final synchronized void addInetManagerListener(IInetListener listener)
+	{
+		inet_listeners.add(listener);
+	}
+	/**
+	 * Adds {@link IInetListener} Internet manager event listener.
+	 * @param listener {@link IInetListener} the listener
+	 */
+	public final synchronized void removeInetManagerListener(IInetListener listener)
+	{
+		inet_listeners.remove(listener);
+	}
+	/**
+	 * Fires {@link IRmlListener} InetManager event.
+	 * @param e {@link RmlEventArgs} the arguments
+	 */
+	protected final void InetManagerEvent(InetEventArgs e)
+	{
+		for (IInetListener listener : inet_listeners) 
+		{
+			listener.OnInetManagerEvent(this, e);
+		}
+	}
+	/**
+	 * Gets the web requester.
+	 * @return {@link Requester} the web requester
+	 */
+	public Vector<Requester> getRequesters() {
+		return requesters;
+	}
+	/**
+	 * InetManager class constructor.
+	 * @param parent {@link IInetListener} the listener
+	 */
+	public InetManager(IInetListener parent, ArrayList<Config> requesters_configs)
+	{
+		super(parent);
+		this.inet_listeners = new Vector<IInetListener>();
+		this.requesters = new Vector<Requester>();
+		
+		for(Config req_config : requesters_configs)
+		{
+			Requester requester = new Requester(this, req_config);
+			this.requesters.add(requester);
+			requester.start();
+		}		
+//		new WebRequester(this, this.servers);
+//		this.web_requester.start();
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.client.managers.Manager#start()
+	 */
+	@Override
+	public void start() 
+	{
+
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.client.managers.Manager#stop()
+	 */
+	@Override
+	public void stop() 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.interfaces.IWebRequesterImpl#OnWorkingServerAdded(java.lang.Object, org.httprobot.common.events.InetEventArgs)
+	 */
+	@Override
+	public void OnWorkingServerAdded(Object sender, WebRequesterEventArgs e) 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.interfaces.IWebRequesterImpl#OnWorkingServerRemoved(java.lang.Object, org.httprobot.common.events.InetEventArgs)
+	 */
+	@Override
+	public void OnWorkingServerRemoved(Object sender, WebRequesterEventArgs e) 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.interfaces.IWebRequesterListener#OnResponseReceived(java.lang.Object, org.httprobot.common.events.WebRequesterEventArgs)
+	 */
+	@Override
+	public void OnResponseReceived(Object sender, WebRequesterEventArgs e) 
+	{
+		// TODO treat HTML response
+		InetManagerEvent(new InetEventArgs(this, InetEventType.DATA_ROW_CAPTURED));		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.interfaces.IDataListener#OnProgramDataChanged(java.lang.Object, org.httprobot.core.events.ProgramDataEventArgs)
+	 */
+	@Override
+	public void OnProgramDataChanged(Object sender, ProgramDataEventArgs e) 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#OnCommandOutput(java.lang.Object, org.httprobot.common.events.CliEventArgs)
+	 */
+	@Override
+	public void OnCommandOutput(Object sender, CliEventArgs e) 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#getCliOptions()
+	 */
+	@Override
+	public EnumSet<CliOptions> getCliOptions() 
+	{
+		return this.options;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.w3c.dom.events.EventListener#handleEvent(org.w3c.dom.events.Event)
+	 */
+	@Override
+	public void handleEvent(Event arg0) 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#getCliNamespace()
+	 */
+	@Override
+	public CliNamespace getCliNamespace() 
+	{
+		return cliNamespace;
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#setCliOptions(java.util.EnumSet)
+	 */
+	@Override
+	public void setCliOptions(EnumSet<CliOptions> options) 
+	{
+		this.options = options; 
+	}
+	@Override
+	public String getDestinationPath() 
+	{
+		return this.destination_path;
+	}
+	@Override
+	public void OnCommandInput(Object sender, CliEventArgs e) 
+	{
+		
+	}
+	@Override
+	public void setDestinationPath(String destinationPath) 
+	{
+		
+	}
+}

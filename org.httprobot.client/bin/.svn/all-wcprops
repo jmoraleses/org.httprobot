@@ -1,0 +1,45 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 24
+/svn/httprobot/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/httprobot/!svn/ver/7/org.httprobot.client/bin
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/httprobot/!svn/ver/1/org.httprobot.client/bin/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/httprobot/!svn/ver/1/org.httprobot.client/bin/.project
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/httprobot/!svn/ver/7/org.httprobot.client/bin/config.xml
+END
+AppConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/httprobot/!svn/ver/7/org.httprobot.client/bin/AppConfig.xml
+END
+config2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/httprobot/!svn/ver/7/org.httprobot.client/bin/config2.xml
+END
+config3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/httprobot/!svn/ver/1/org.httprobot.client/bin/config3.xml
+END

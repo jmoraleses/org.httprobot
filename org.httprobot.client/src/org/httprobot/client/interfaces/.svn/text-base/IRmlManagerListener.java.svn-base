@@ -1,0 +1,15 @@
+package org.httprobot.client.interfaces;
+
+import org.httprobot.common.events.RmlManagerEventArgs;
+import org.httprobot.common.interfaces.IListener;
+
+/**
+ * RML manager listener interface. Inherits {@link IListener}.
+ * @author Joan
+ */
+public interface IRmlManagerListener extends IListener
+{
+	public void OnServerInfo_Insert(Object sender, RmlManagerEventArgs e);
+	public void OnServerInfo_Update(Object sender, RmlManagerEventArgs e);
+	public void OnServerInfo_Delete(Object sender, RmlManagerEventArgs e);
+}

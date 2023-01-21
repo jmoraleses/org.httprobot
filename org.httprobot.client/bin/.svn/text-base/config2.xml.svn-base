@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config:config destinationPath="config.xml" inherited="false" uuid="5db8016a-b1f2-406e-a304-37fbdbd50ff5" xmlns:config="http://httprobot/rml/" xmlns:operators="http://httprobot/rml/datatypes/placeholders/operators/" xmlns:datatypes="http://httprobot/rml/datatypes/" xmlns:placeholders="http://httprobot/rml/datatypes/placeholders/">
+    <config:cliOptions>[RML_CHECK, INET_CHECK, DATA_CHECK, UI_CHECK, CLIENT_CHECK, THROW_EXCEPTIONS]</config:cliOptions>
+    <config:serverInfo inherited="true" uuid="1da56b6d-ac69-407d-8dcd-b2e4cf3f6d63">
+        <datatypes:dataView dbSchema="DB_SCHEMA_NAME" inherited="true" uuid="9d044073-eb7b-4fbe-a8ce-535db74e0dd4">
+            <datatypes:fieldRef fieldType="STRING" inherited="true" uuid="d85ac31a-a501-43d5-8b10-5036a410e835">
+                <datatypes:fieldName>DV_FIELDNAME_1</datatypes:fieldName>
+            </datatypes:fieldRef>
+            <datatypes:fieldRef fieldType="LINK" inherited="true" uuid="e79b278b-3ab0-4e0a-a38b-378ab8417c26">
+                <datatypes:fieldName>DV_FIELDNAME_2</datatypes:fieldName>
+            </datatypes:fieldRef>
+        </datatypes:dataView>
+        <datatypes:lastUpdate>LASTUPDATE</datatypes:lastUpdate>
+        <datatypes:serverName>peliculasyonkis</datatypes:serverName>
+        <datatypes:serverUrl>http://www.peliculasyonkis.com/</datatypes:serverUrl>
+        <datatypes:startUrl>http://www.peliculasyonkis.com/lista-de-peliculas/</datatypes:startUrl>
+        <datatypes:steps inherited="true" uuid="48e24efc-e783-4200-8cce-00c5d7309e35">
+            <datatypes:step inherited="true" uuid="e56e7a0a-5eb5-498b-89f9-ea6ac80f8b17">
+                <datatypes:action inherited="true" uuid="ffc60b3a-fff3-4940-b0b9-1aae66b05d14">
+                    <datatypes:httpAddress>http://www.peliculasyonkis.com/lista-de-peliculas/[@param]</datatypes:httpAddress>
+                    <datatypes:method>balbalbalba</datatypes:method>
+                    <datatypes:type>GET</datatypes:type>					
+                </datatypes:action>
+                <datatypes:fields inherited="true" uuid="6034c973-8a57-4154-8b75-a7f00f3b8d5f">
+                    <datatypes:field inherited="true" uuid="44dc669a-3166-430a-8494-40308844717c">
+                        <datatypes:fieldName>DV_FIELDNAME_1</datatypes:fieldName>
+                        <datatypes:fieldType>STRING</datatypes:fieldType>
+                        <datatypes:rules inherited="true" uuid="546eaf48-7579-40c4-9ba5-e93b1929bb8d">
+                            <datatypes:rule inherited="true" uuid="97fd3eba-9e71-41eb-a11a-cba6654d7b79">
+								<datatypes:webResponse inherited="true" uuid="b43fd05e-b664-4797-954c-e2c827e041e4">
+									<placeholders:replace inherited="true" uuid="35209737-310b-41ee-b8ed-690982ad2499">
+										<operators:getField inherited="true" uuid="49c467ea-3fe2-4e6b-a41a-487ed8f05a9b"/>
+										<operators:newString>NEWSTRING2</operators:newString>
+										<operators:oldString>OLDSTRING2</operators:oldString>
+										<operators:equals inherited="true" uuid="af878fca-cd5b-47ea-9302-02a8ac27a370">
+											<operators:value>HOLA</operators:value>
+										</operators:equals>
+										<operators:value>CONTAINSSS</operators:value>
+									</placeholders:replace>
+								</datatypes:webResponse>
+                            </datatypes:rule>
+                        </datatypes:rules>
+                    </datatypes:field>
+                </datatypes:fields>
+                <datatypes:step inherited="true" uuid="ceb10373-2e6e-473f-80ab-6404a8bb7c70">
+                    <datatypes:action inherited="true" uuid="77c6824b-71e2-4a30-b165-3affc3f74995">
+                        <datatypes:httpAddress>http://www.peliculasyonkis.com/pelicula/[@param]</datatypes:httpAddress>
+                        <datatypes:method>balbalbalba2</datatypes:method>
+                        <datatypes:type>POST</datatypes:type>
+                    </datatypes:action>
+                    <datatypes:fields inherited="true" uuid="7153873e-f3f1-4340-aefe-1742f767c39e">
+                        <datatypes:field inherited="true" uuid="8003f6b8-e365-4c65-a6d1-8067ee6f7ea9">
+                            <datatypes:fieldName>DV_FIELDNAME_2</datatypes:fieldName>
+                            <datatypes:fieldType>LINK</datatypes:fieldType>
+                            <datatypes:rules inherited="true" uuid="546eaf48-7579-40c4-9ba5-e93b1929bb8d">
+								<datatypes:rule inherited="true" uuid="97fd3eba-9e71-41eb-a11a-cba6654d7b79">
+									<datatypes:webResponse inherited="true" uuid="b43fd05e-b664-4797-954c-e2c827e041e4">
+										<placeholders:replace inherited="true" uuid="35209737-310b-41ee-b8ed-690982ad2499">
+											<operators:getField inherited="true" uuid="49c467ea-3fe2-4e6b-a41a-487ed8f05a9b"/>
+											<operators:newString>NEWSTRING2</operators:newString>
+											<operators:oldString>OLDSTRING2</operators:oldString>
+										</placeholders:replace>
+									</datatypes:webResponse>
+								</datatypes:rule>
+                            </datatypes:rules>
+                        </datatypes:field>
+                    </datatypes:fields>
+					<datatypes:step inherited="true">
+						<datatypes:action inherited="true" uuid="77c6824b-71e2-4a30-b165-3affc3f74995">
+							<datatypes:httpAddress>http://www.peliculasyonkis.com/s/ngo/[@param]</datatypes:httpAddress>
+							<datatypes:method>balbalbalba2</datatypes:method>
+							<datatypes:type>POST</datatypes:type>
+						</datatypes:action>
+						<datatypes:fields inherited="true" uuid="7153873e-f3f1-4340-aefe-1742f767c39e">
+							<datatypes:field inherited="true" uuid="8003f6b8-e365-4c65-a6d1-8067ee6f7ea9">
+							<datatypes:fieldName>DV_FIELDNAME_2</datatypes:fieldName>
+							<datatypes:fieldType>LINK</datatypes:fieldType>
+							<datatypes:rules inherited="true" uuid="546eaf48-7579-40c4-9ba5-e93b1929bb8d">
+								<datatypes:rule inherited="true" uuid="97fd3eba-9e71-41eb-a11a-cba6654d7b79">
+									<datatypes:webResponse inherited="true" uuid="b43fd05e-b664-4797-954c-e2c827e041e4">
+										<placeholders:replace inherited="true" uuid="35209737-310b-41ee-b8ed-690982ad2499">
+											<operators:getField inherited="true" uuid="49c467ea-3fe2-4e6b-a41a-487ed8f05a9b"/>
+											<operators:newString>NEWSTRING2</operators:newString>
+											<operators:oldString>OLDSTRING2</operators:oldString>
+										</placeholders:replace>
+									</datatypes:webResponse>
+								</datatypes:rule>
+							</datatypes:rules>
+							</datatypes:field>
+						</datatypes:fields>
+						<datatypes:step inherited="true">
+							<datatypes:action inherited="true" uuid="77c6824b-71e2-4a30-b165-3affc3f74995">
+								<datatypes:httpAddress>http://www.peliculasyonkis.com/s/y/[@param]</datatypes:httpAddress>
+								<datatypes:method>balbalbalba2</datatypes:method>
+								<datatypes:type>POST</datatypes:type>
+							</datatypes:action>
+							<datatypes:fields inherited="true" uuid="7153873e-f3f1-4340-aefe-1742f767c39e">
+								<datatypes:field inherited="true" uuid="8003f6b8-e365-4c65-a6d1-8067ee6f7ea9">
+									<datatypes:fieldName>DV_FIELDNAME_2</datatypes:fieldName>
+									<datatypes:fieldType>LINK</datatypes:fieldType>
+									<datatypes:rules inherited="true" uuid="546eaf48-7579-40c4-9ba5-e93b1929bb8d">
+										<datatypes:rule inherited="true" uuid="97fd3eba-9e71-41eb-a11a-cba6654d7b79">
+											<datatypes:webRequest inherited="true" uuid="b43fd05e-b664-4797-954c-e2c827e041e4">
+												<placeholders:replace inherited="true" uuid="35209737-310b-41ee-b8ed-690982ad2499">
+													<operators:getField inherited="true" uuid="49c467ea-3fe2-4e6b-a41a-487ed8f05a9b"/>
+														<operators:newString>NEWSTRING2</operators:newString>
+														<operators:oldString>OLDSTRING2</operators:oldString>
+												</placeholders:replace>
+											</datatypes:webRequest>
+										</datatypes:rule>
+									</datatypes:rules>
+								</datatypes:field>
+							</datatypes:fields>
+						</datatypes:step>
+					</datatypes:step>
+				</datatypes:step>
+            </datatypes:step>
+        </datatypes:steps>
+    </config:serverInfo>
+</config:config>

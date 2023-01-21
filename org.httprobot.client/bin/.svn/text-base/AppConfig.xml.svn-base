@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config:appConfig xmlns:config="http://httprobot/rml/" destinationPath="AppConfig.xml" inherited="true" uuid="da504bf1-b73c-4444-b573-9732b686cf59">
+    <config:configFilePath>./src/config.xml</config:configFilePath>
+    <config:logFilePath>log.xml</config:logFilePath>
+</config:appConfig>

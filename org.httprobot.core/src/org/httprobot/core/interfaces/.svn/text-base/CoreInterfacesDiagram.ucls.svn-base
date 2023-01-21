@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <interface id="1" language="java" name="org.httprobot.core.rml.controls.interfaces.IRmlPlaceholder" 
+    project="org.httprobot.core" 
+    file="/org.httprobot.core/src/org/httprobot/core/rml/controls/interfaces/IRmlPlaceholder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="1576" y="408" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="2" language="java" name="org.httprobot.core.rml.controls.interfaces.IRmlDataTypeListener" 
+    project="org.httprobot.core" 
+    file="/org.httprobot.core/src/org/httprobot/core/rml/controls/interfaces/IRmlDataTypeListener.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="1123" y="517" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="3" language="java" name="org.httprobot.common.interfaces.IRmlListener" project="org.httprobot.common" 
+    file="/org.httprobot.common/src/org/httprobot/common/interfaces/IRmlListener.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="1117" y="158" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="4" language="java" name="org.httprobot.core.rml.controls.interfaces.IRmlOperatorListener" 
+    project="org.httprobot.core" 
+    file="/org.httprobot.core/src/org/httprobot/core/rml/controls/interfaces/IRmlOperatorListener.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="1577" y="752" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <generalization id="5">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="6">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="7">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

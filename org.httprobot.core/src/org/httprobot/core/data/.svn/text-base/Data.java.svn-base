@@ -1,0 +1,168 @@
+package org.httprobot.core.data;
+
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.Vector;
+
+import org.httprobot.common.definitions.Enums.CliNamespace;
+import org.httprobot.common.definitions.Enums.RuntimeOptions;
+import org.httprobot.common.definitions.Enums.ProgramDataEventType;
+import org.httprobot.common.events.CliEventArgs;
+import org.httprobot.common.rml.datatypes.ServerInfo;
+import org.httprobot.core.data.view.ViewTable;
+import org.httprobot.core.events.InetEventArgs;
+import org.httprobot.core.events.ProgramDataEventArgs;
+import org.httprobot.core.interfaces.IDataListener;
+import org.httprobot.core.interfaces.IInetListener;
+import org.httprobot.core.rml.controls.datatypes.ServerInfoControl;
+import org.w3c.dom.events.Event;
+
+/**
+ * Program data class. Contains all information used by the application,
+ * @author Joan
+ */
+public class Data implements IInetListener
+{
+	private static final CliNamespace cliNamespace = CliNamespace.DATA;
+	
+	private Vector<ViewTable> captures_tables;
+	private ArrayList<ServerInfo> servers_infos;
+	private Vector<IDataListener> program_data_changed_listeners = null;
+	private EnumSet<RuntimeOptions> debug_options = null;
+	private String destination_path;
+	/**
+	 * Adds TryParse event listener
+	 * @param listener {@link IDataListener}
+	 */
+	public final synchronized void addProgramDataChangedListener(IDataListener listener)
+	{
+		program_data_changed_listeners.add(listener);
+	}
+	/**
+	 * Adds TryParse event listener
+	 * @param listener {@link IDataListener}
+	 */
+	public final synchronized void removeProgramDataChangedListener(IDataListener listener)
+	{
+		program_data_changed_listeners.remove(listener);
+	}
+	/**
+	 * Fires event method to parent.
+	 * @param message RML Object
+	 */
+	protected final void ProgramDataChangedEvent(ProgramDataEventArgs e) 
+	{
+		for (IDataListener listener : program_data_changed_listeners) 
+		{
+			listener.OnProgramDataChanged(this, e);
+		}
+	}
+	/**
+	 * Gets the current ServerInfoControl elements used by application.
+	 * @return {@link ArrayList} of {@link ServerInfoControl}
+	 */
+	public ArrayList<ServerInfo> getServers_infos() {
+		return servers_infos;
+	}
+	/**
+	 * Gets the collected data by the application.
+	 * @return {@link Vector} of {@link ViewTable}
+	 */
+	public Vector<ViewTable> getCaptures_tables() {
+		return captures_tables;
+	}	
+	/**
+	 * @param servers_infos
+	 */
+	public void setServers_infos(ArrayList<ServerInfo> servers_infos) {
+		this.servers_infos = servers_infos;
+		ProgramDataChangedEvent(new ProgramDataEventArgs(this, ProgramDataEventType.SERVERS_INFO));
+	}
+	/**
+	 * Sets the captures tables.
+	 * @param captures_tables {@link Vector} of {@link ViewTable}
+	 */
+	public void setCaptures_tables(Vector<ViewTable> captures_tables) {
+		this.captures_tables = captures_tables;
+		ProgramDataChangedEvent(new ProgramDataEventArgs(this, ProgramDataEventType.CAPTURE_TABLE));
+	}
+	/**
+	 * ProgramData class constructor.
+	 * @param parent {@link IDataListener}
+	 */
+	public Data(IDataListener parent, EnumSet<RuntimeOptions> options)
+	{
+		this.servers_infos = new ArrayList<ServerInfo>();
+		this.captures_tables = new Vector<ViewTable>();
+		this.program_data_changed_listeners = new Vector<IDataListener>();
+		this.debug_options = options;
+		this.destination_path = parent.getDestinationPath();
+		
+		addProgramDataChangedListener(parent);
+	}
+	@Override
+	public void OnCommandOutput(Object sender, CliEventArgs e) {
+		
+	}
+
+	@Override
+	public EnumSet<RuntimeOptions> getCliOptions() 
+	{
+		return this.debug_options;
+	}
+
+	public void setCliOptions(EnumSet<RuntimeOptions> debugOptions) 
+	{
+		this.debug_options = debugOptions;
+		ProgramDataChangedEvent(new ProgramDataEventArgs(debugOptions, ProgramDataEventType.DEBUG_OPTIONS));
+	}
+	@Override
+	public void handleEvent(Event arg0) 
+	{
+		
+	}
+	@Override
+	public CliNamespace getCliNamespace() 
+	{
+		return cliNamespace;
+	}
+	@Override
+	public String getDestinationPath() 
+	{
+		return this.destination_path;
+	}
+	@Override
+	public void OnCommandInput(Object sender, CliEventArgs e)
+	{
+		
+	}
+	@Override
+	public void setDestinationPath(String destinationPath) 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.interfaces.IInetListener#OnResponseReceived(java.lang.Object, org.httprobot.core.events.InetEventArgs)
+	 */
+	@Override
+	public void OnResponseReceived(Object sender, InetEventArgs e) {
+		// TODO Auto-generated method stub
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.interfaces.IInetListener#OnServerInfoStarted(java.lang.Object, org.httprobot.core.events.InetEventArgs)
+	 */
+	@Override
+	public void OnServerInfoStarted(Object sender, InetEventArgs e) {
+		// TODO Auto-generated method stub
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.interfaces.IInetListener#OnServerInfoStopped(java.lang.Object, org.httprobot.core.events.InetEventArgs)
+	 */
+	@Override
+	public void OnServerInfoStopped(Object sender, InetEventArgs e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

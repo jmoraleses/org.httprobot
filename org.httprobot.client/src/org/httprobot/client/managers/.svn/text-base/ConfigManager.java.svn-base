@@ -1,0 +1,23 @@
+package org.httprobot.client.managers;
+
+import org.httprobot.core.rml.controls.interfaces.IRmlConfigListener;
+
+public class ConfigManager extends Manager<IRmlConfigListener>
+{
+	public ConfigManager(IRmlConfigListener parent)
+	{
+		super(parent);
+	}
+
+	@Override
+	public void start() {
+		
+	}
+
+	@Override
+	public void stop() {
+		
+	}
+
+}
+  

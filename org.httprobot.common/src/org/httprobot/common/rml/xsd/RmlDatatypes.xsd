@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://httprobot/rml/datatypes/" xmlns:ns2="http://httprobot/rml/datatypes/placeholders/operators" xmlns:ns1="http://httprobot/rml/datatypes/placeholders" xmlns:tns="http://httprobot/rml/datatypes/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:datatypes="http://httprobot/rml/datatypes/">
+
+  <xs:import schemaLocation="RmlEnums.xsd"/>
+
+  <xs:import namespace="http://httprobot/rml/datatypes/placeholders" schemaLocation="RmlPlaceholders.xsd"/>
+
+  <xs:import namespace="http://httprobot/rml/datatypes/placeholders/operators" schemaLocation="RmlOperators.xsd"/>
+
+  <xs:element name="ServerInfo" type="tns:serverInfo"/>
+
+  <xs:element name="action" type="tns:action"/>
+
+  <xs:element name="dataView" type="tns:dataView"/>
+
+  <xs:element name="field" type="tns:field"/>
+
+  <xs:element name="fieldRef" type="tns:fieldRef"/>
+
+  <xs:element name="fields" type="tns:fields"/>
+
+  <xs:element name="getField" type="tns:getField"/>
+
+  <xs:element name="rule" type="tns:rule"/>
+
+  <xs:element name="rules" type="tns:rules"/>
+
+  <xs:element name="step" type="tns:step"/>
+
+  <xs:element name="steps" type="tns:steps"/>
+
+  <xs:complexType name="serverInfo">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element ref="tns:dataView" minOccurs="0"/>
+      <xs:element name="lastUpdate" type="xs:string" minOccurs="0"/>
+      <xs:element name="serverName" type="xs:string" minOccurs="0"/>
+      <xs:element name="serverUrl" type="xs:string" minOccurs="0"/>
+      <xs:element name="startUrl" type="xs:string" minOccurs="0"/>
+      <xs:element ref="tns:steps" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="dataView">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element ref="tns:fieldRef" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="dbSchema" type="xs:string"/>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="fieldRef">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element name="fieldName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="fieldType" type="rmlDataType"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="steps">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element name="step" type="tns:step" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="step">
+    <xs:sequence>
+      <xs:element ref="tns:action" minOccurs="0"/>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element ref="tns:fields" minOccurs="0"/>
+      <xs:element ref="tns:step" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="action">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element name="httpAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="method" type="xs:string" minOccurs="0"/>
+      <xs:element name="type" type="rmlActionType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="fields">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element name="field" type="tns:field" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="field">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element name="fieldName" type="xs:string" minOccurs="0"/>
+      <xs:element name="fieldType" type="xs:string" minOccurs="0"/>
+      <xs:element ref="tns:rules" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="rules">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element ref="tns:rule" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="rule">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element ref="ns1:webRequest" minOccurs="0"/>
+      <xs:element ref="ns1:webResponse" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="getField">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element name="fieldName" type="xs:string" minOccurs="0"/>
+      <xs:element name="value" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+</xs:schema>
+

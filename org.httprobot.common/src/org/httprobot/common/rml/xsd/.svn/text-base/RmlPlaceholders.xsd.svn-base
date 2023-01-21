@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://httprobot/rml/datatypes/placeholders" xmlns:ns2="http://httprobot/rml/datatypes/placeholders/operators" xmlns:ns1="http://httprobot/rml/datatypes/" xmlns:tns="http://httprobot/rml/datatypes/placeholders" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:placeholders="http://httprobot/rml/datatypes/placeholders">
+
+  <xs:import namespace="http://httprobot/rml/datatypes/" schemaLocation="RmlDatatypes.xsd"/>
+
+  <xs:import namespace="http://httprobot/rml/datatypes/placeholders/operators" schemaLocation="RmlOperators.xsd"/>
+
+  <xs:element name="webRequest" type="tns:webRequest"/>
+
+  <xs:element name="webResponse" type="tns:webResponse"/>
+
+  <xs:complexType name="webRequest">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element ref="ns2:contains" minOccurs="0"/>
+      <xs:element ref="ns2:equals" minOccurs="0"/>
+      <xs:element ref="ns2:remove" minOccurs="0"/>
+      <xs:element ref="ns2:replace" minOccurs="0"/>
+      <xs:element ref="ns2:split" minOccurs="0"/>
+      <xs:element ref="ns2:substring" minOccurs="0"/>
+      <xs:element ref="ns2:tryParse" minOccurs="0"/>
+      <xs:element ref="ns2:xmlQuery" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="webResponse">
+    <xs:sequence>
+      <xs:element name="cliOptions" type="xs:string" minOccurs="0"/>
+      <xs:element ref="ns2:contains" minOccurs="0"/>
+      <xs:element ref="ns2:equals" minOccurs="0"/>
+      <xs:element name="foreach" type="ns2:forEach" minOccurs="0"/>
+      <xs:element ref="ns2:remove" minOccurs="0"/>
+      <xs:element ref="ns2:replace" minOccurs="0"/>
+      <xs:element ref="ns2:split" minOccurs="0"/>
+      <xs:element ref="ns2:substring" minOccurs="0"/>
+      <xs:element name="tryparse" type="ns2:tryParse" minOccurs="0"/>
+      <xs:element name="xmlquery" type="ns2:xmlQuery" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="destinationPath" type="xs:string"/>
+    <xs:attribute name="inherited" type="xs:boolean"/>
+    <xs:attribute name="uuid" type="xs:string"/>
+  </xs:complexType>
+</xs:schema>
+

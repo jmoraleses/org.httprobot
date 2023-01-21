@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <interface id="1" language="java" name="org.httprobot.core.interfaces.IInetListener" project="org.httprobot.core" 
+    file="/org.httprobot.core/src/org/httprobot/core/interfaces/IInetListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position x="394" y="305" width="286" height="83"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="2" language="java" name="org.httprobot.common.interfaces.IUiListener" project="org.httprobot.common" 
+    file="/org.httprobot.common/src/org/httprobot/common/interfaces/IUiListener.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="720" y="305" width="243" height="83"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="3" language="java" name="org.httprobot.common.interfaces.IConfigListener" 
+    project="org.httprobot.common" file="/org.httprobot.common/src/org/httprobot/common/interfaces/IConfigListener.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position x="1003" y="305" width="291" height="83"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="4" language="java" name="org.httprobot.common.interfaces.IListener" project="org.httprobot.common" 
+    file="/org.httprobot.common/src/org/httprobot/common/interfaces/IListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position x="863" y="182" width="316" height="83"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="5" language="java" name="org.httprobot.client.interfaces.IRmlManagerListener" 
+    project="org.httprobot.client" 
+    file="/org.httprobot.client/src/org/httprobot/client/interfaces/IRmlManagerListener.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="1334" y="305" width="349" height="83"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <generalization id="6">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="7">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="8">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="9">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

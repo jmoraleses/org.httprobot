@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/rml/controls/datatypes/interfaces
+END
+IActionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/rml/controls/datatypes/interfaces/IActionListener.java
+END
+IServerInfoControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/rml/controls/datatypes/interfaces/IServerInfoControl.java
+END
+IFieldControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/rml/controls/datatypes/interfaces/IFieldControl.java
+END
+IDataViewControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/rml/controls/datatypes/interfaces/IDataViewControl.java
+END
+IFieldsControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/rml/controls/datatypes/interfaces/IFieldsControl.java
+END
+IRuleControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/rml/controls/datatypes/interfaces/IRuleControl.java
+END
+IRulesControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/rml/controls/datatypes/interfaces/IRulesControl.java
+END
+IStepControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/rml/controls/datatypes/interfaces/IStepControl.java
+END
+IStepsControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/rml/controls/datatypes/interfaces/IStepsControl.java
+END

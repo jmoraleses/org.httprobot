@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config:config xmlns:placeholders="http://httprobot/rml/datatypes/placeholders/" xmlns:config="http://httprobot/rml/" xmlns:operators="http://httprobot/rml/datatypes/placeholders/operators/" xmlns:datatypes="http://httprobot/rml/datatypes/" destinationPath="config.xml" inherited="false" uuid="dcdcda64-0503-4b50-8006-6d5e465187ab">
+    <config:cliOptions>[RML_CHECK, SHOW_LOAD_EVENTS, SHOW_RENDER_EVENTS, THROW_EXCEPTIONS]</config:cliOptions>
+    <config:serverInfo inherited="true" uuid="dc1e7bb1-0332-45ec-be6e-508b79f1ff37">
+        <datatypes:dataView dbSchema="DB_SCHEMA_NAME" inherited="true" uuid="ad50c215-5f39-45fa-9350-d94f5edc86c1"/>
+        <datatypes:lastUpdate>2013/12/12 16:44:09</datatypes:lastUpdate>
+        <datatypes:serverName>peliculasyonkis</datatypes:serverName>
+        <datatypes:serverUrl>http://www.peliculasyonkis.com/</datatypes:serverUrl>
+        <datatypes:startUrl>lista-de-peliculas/</datatypes:startUrl>
+        <datatypes:steps inherited="true" uuid="803a09c0-cfb4-49c7-b9e4-974c97546d51">
+            <datatypes:step inherited="true" uuid="91ff08f9-d3f9-46d7-85a8-d56029888e29">
+                <datatypes:action inherited="true" uuid="c6a1741d-85b2-4915-841b-422cf2403350">
+                    <datatypes:httpAddress>[@param]</datatypes:httpAddress>
+                    <datatypes:method>hoalhoalahola</datatypes:method>
+                    <datatypes:type>GET</datatypes:type>
+                </datatypes:action>
+                <datatypes:fields inherited="true" uuid="0944d693-0dce-4861-a0f0-09f46f2f05ea">
+                    <datatypes:field inherited="true" uuid="287fc694-9011-4693-a2a8-006550d25e12">
+                        <datatypes:fieldName>DV_FIELDNAME_1</datatypes:fieldName>
+                        <datatypes:fieldType>STRING</datatypes:fieldType>
+                        <datatypes:rules inherited="true" uuid="2ce054ae-c2a7-42ba-be07-88c86a98284f">
+                            <datatypes:rule inherited="true" uuid="b0b53ecd-d264-466f-b300-b3c773abea21">
+<datatypes:webResponse inherited="true" pointer="HTML_BODY" uuid="b1d229b3-7846-4dba-96d5-616a197775de">
+    <contains inherited="true" uuid="2f3611af-b262-4824-aafc-9a549667cf81">
+        <operators:value>OLA</operators:value>
+    </contains>
+    <replace inherited="true" uuid="b95251f1-13fe-4c6d-ac54-391f1f9362e0">
+        <operators:newString>HOLA</operators:newString>
+        <operators:oldString>ADEU</operators:oldString>
+    </replace>
+</datatypes:webResponse>
+                            </datatypes:rule>
+                        </datatypes:rules>
+                    </datatypes:field>
+                    <datatypes:field inherited="true" uuid="cade233f-3cbf-408f-8026-c21367bb9a6c">
+                        <datatypes:fieldName>DV_FIELDNAME_2</datatypes:fieldName>
+                        <datatypes:fieldType>LINK</datatypes:fieldType>
+                    </datatypes:field>
+                </datatypes:fields>
+                <datatypes:step inherited="true" uuid="f7678881-557d-439b-ad96-5079c88a462b"/>
+            </datatypes:step>
+            <datatypes:step inherited="true" uuid="f7678881-557d-439b-ad96-5079c88a462b"/>
+        </datatypes:steps>
+    </config:serverInfo>
+</config:config>

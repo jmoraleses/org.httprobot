@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config:config xmlns:placeholders="http://httprobot/rml/datatypes/placeholders/" xmlns:config="http://httprobot/rml/" xmlns:operators="http://httprobot/rml/datatypes/placeholders/operators/" xmlns:datatypes="http://httprobot/rml/datatypes/" destinationPath="config.xml" inherited="false" uuid="05cf316b-403a-41df-b176-d6fd80159db5">
+    <config:cliOptions>[RML_CHECK, SERVER_CHECK, SHOW_LOAD_EVENTS, SHOW_RENDER_EVENTS, THROW_EXCEPTIONS]</config:cliOptions>
+    <config:serverInfo inherited="true" uuid="caf2d98e-6d47-4712-87d8-f7ad8dc96ab6">
+        <datatypes:dataView dbSchema="DB_SCHEMA_NAME" inherited="true" uuid="426e7863-7afc-40bb-8007-4de19479a096">
+            <datatypes:fieldRef fieldType="STRING" inherited="true" uuid="9292cdb5-1295-43e5-b691-16e1c46c2c66">
+                <datatypes:fieldName>DV_FIELDNAME_1</datatypes:fieldName>
+            </datatypes:fieldRef>
+            <datatypes:fieldRef fieldType="LINK" inherited="true" uuid="b1af6598-19ac-4399-aa63-d918cb5d81c6">
+                <datatypes:fieldName>DV_FIELDNAME_2</datatypes:fieldName>
+            </datatypes:fieldRef>
+        </datatypes:dataView>
+        <datatypes:lastUpdate>2013/12/16 11:43:10</datatypes:lastUpdate>
+        <datatypes:serverName>peliculasyonkis</datatypes:serverName>
+        <datatypes:serverUrl>http://www.peliculasyonkis.com/</datatypes:serverUrl>
+        <datatypes:startUrl>lista-de-peliculas/</datatypes:startUrl>
+        <datatypes:steps inherited="true" uuid="8056fa8f-0811-4f27-a476-5a2d274a3080">
+            <datatypes:step inherited="true" uuid="d5193f33-75de-4d89-96eb-e588705c9b22">
+                <datatypes:action inherited="true" uuid="a3a29b5e-9a01-4c8b-9751-45be70c3dd89">
+                    <datatypes:httpAddress>[@param]</datatypes:httpAddress>
+                    <datatypes:method>hoalhoalahola</datatypes:method>
+                    <datatypes:type>GET</datatypes:type>
+                </datatypes:action>
+                <datatypes:fields inherited="true" uuid="fb09454a-2f60-4af5-bdb1-3d59183823b3">
+                    <datatypes:field inherited="true" uuid="f1154469-ba54-4ac6-b253-3e88447776a1">
+                        <datatypes:fieldName>DV_FIELDNAME_1</datatypes:fieldName>
+                        <datatypes:fieldType>STRING</datatypes:fieldType>
+                        <datatypes:rules inherited="true" uuid="eaf7e6e9-26be-4013-a48c-2259439a966f">
+                            <datatypes:rule inherited="true" uuid="20cd832a-44b8-4cea-8e5c-808ffc237b6a">
+<datatypes:htmlBody inherited="true" pointer="HTML_BODY" uuid="d69bf633-64cf-4463-8f02-04dc2df2dc54">
+    <contains inherited="true" uuid="c4dbb65f-b125-450b-8d0a-8ccc1586f885">
+        <operators:getField inherited="true" uuid="8d03b4b1-2501-4819-8128-756b36a6cb30">
+            <operators:fieldName>DV_FIELDNAME_1</operators:fieldName>
+            <operators:value>OLA</operators:value>
+        </operators:getField>
+        <operators:value>OLA</operators:value>
+    </contains>
+    <replace inherited="true" uuid="c8cc643f-d30d-44d0-ae24-be3e098302fb">
+        <operators:getField inherited="true" uuid="f91e25cc-7a36-4953-a83c-aa1351878794">
+            <operators:fieldName>DV_FIELDNAME3</operators:fieldName>
+            <operators:value>BLABLABLABLA</operators:value>
+        </operators:getField>
+        <operators:newString>HOLA</operators:newString>
+        <operators:oldString>ADEU</operators:oldString>
+    </replace>
+</datatypes:htmlBody>
+                            </datatypes:rule>
+                        </datatypes:rules>
+                    </datatypes:field>
+                    <datatypes:field inherited="true" uuid="abd6e924-63fe-431f-b654-0b4a9b8ebed5">
+                        <datatypes:fieldName>DV_FIELDNAME_2</datatypes:fieldName>
+                        <datatypes:fieldType>LINK</datatypes:fieldType>
+                        <datatypes:rules inherited="true" uuid="97bfd32d-b3e8-4756-8eff-2bcb618bf4df">
+                            <datatypes:rule inherited="true" uuid="990af4e1-64ad-49b6-90c8-94e2fbcd9924">
+<datatypes:httpRequest inherited="true" pointer="HTTP_ADDRESS" uuid="95ddcdc1-62e8-4d38-8dce-8e8442b90d7c">
+    <remove inherited="true" uuid="414678f0-f439-4dad-83f5-837ad6cfce81">
+        <operators:endIndex inherited="true" uuid="78ac32a5-83b9-4152-94b5-d9d3da970ac8">
+            <operators:stringValue>holalalalala</operators:stringValue>
+        </operators:endIndex>
+        <operators:getField inherited="true" uuid="0f3c8f99-e0fc-4738-803c-f0cf6c5d2082">
+            <operators:fieldName>DV_FIELDNAME2</operators:fieldName>
+            <operators:value>OLALLALALA</operators:value>
+        </operators:getField>
+        <operators:startIndex inherited="true" uuid="1b12a75c-9b0d-42a5-82c4-4162b38c8622">
+            <operators:stringValue>Adeueueueueueu</operators:stringValue>
+        </operators:startIndex>
+    </remove>
+</datatypes:httpRequest>
+                            </datatypes:rule>
+                        </datatypes:rules>
+                    </datatypes:field>
+                </datatypes:fields>
+                <datatypes:step inherited="true" uuid="9bab9ceb-2ae9-44e6-8d85-dd586b9aac82">
+                    <datatypes:action inherited="true" uuid="f925dfb9-5ed8-40ae-ad09-42a3dc181581">
+                        <datatypes:httpAddress>[@start_url]/[@param]</datatypes:httpAddress>
+                        <datatypes:method>adeueueueueu</datatypes:method>
+                    </datatypes:action>
+                    <datatypes:fields inherited="true" uuid="5c75ba7d-4166-430b-b06a-05fee1186bc0">
+                        <datatypes:field inherited="true" uuid="abd6e924-63fe-431f-b654-0b4a9b8ebed5">
+                            <datatypes:fieldName>DV_FIELDNAME_2</datatypes:fieldName>
+                            <datatypes:fieldType>LINK</datatypes:fieldType>
+                            <datatypes:rules inherited="true" uuid="97bfd32d-b3e8-4756-8eff-2bcb618bf4df">
+<datatypes:rule inherited="true" uuid="990af4e1-64ad-49b6-90c8-94e2fbcd9924">
+    <datatypes:httpRequest inherited="true" pointer="HTTP_ADDRESS" uuid="95ddcdc1-62e8-4d38-8dce-8e8442b90d7c">
+        <remove inherited="true" uuid="414678f0-f439-4dad-83f5-837ad6cfce81">
+            <operators:endIndex inherited="true" uuid="78ac32a5-83b9-4152-94b5-d9d3da970ac8">
+                <operators:stringValue>holalalalala</operators:stringValue>
+            </operators:endIndex>
+            <operators:getField inherited="true" uuid="0f3c8f99-e0fc-4738-803c-f0cf6c5d2082">
+                <operators:fieldName>DV_FIELDNAME2</operators:fieldName>
+                <operators:value>OLALLALALA</operators:value>
+            </operators:getField>
+            <operators:startIndex inherited="true" uuid="1b12a75c-9b0d-42a5-82c4-4162b38c8622">
+                <operators:stringValue>Adeueueueueueu</operators:stringValue>
+            </operators:startIndex>
+        </remove>
+    </datatypes:httpRequest>
+</datatypes:rule>
+                            </datatypes:rules>
+                        </datatypes:field>
+                    </datatypes:fields>
+                </datatypes:step>
+            </datatypes:step>
+        </datatypes:steps>
+    </config:serverInfo>
+</config:config>

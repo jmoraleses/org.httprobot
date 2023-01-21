@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/httprobot/!svn/ver/4/org.httprobot.common/src/org/httprobot/common/rml/datatypes
+END
+Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/Action.java
+END
+Steps.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/Steps.java
+END
+FieldRef.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/httprobot/!svn/ver/5/org.httprobot.common/src/org/httprobot/common/rml/datatypes/FieldRef.java
+END
+ServerInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/ServerInfo.java
+END
+Field.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/Field.java
+END
+FieldRefs.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/FieldRefs.java
+END
+GetField.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/GetField.java
+END
+DataView.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/DataView.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/package-info.java
+END
+Fields.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/Fields.java
+END
+Rule.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/httprobot/!svn/ver/3/org.httprobot.common/src/org/httprobot/common/rml/datatypes/Rule.java
+END
+Rules.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/Rules.java
+END
+Step.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/Step.java
+END

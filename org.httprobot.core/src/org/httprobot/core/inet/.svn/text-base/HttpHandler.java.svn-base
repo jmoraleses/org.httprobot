@@ -1,0 +1,43 @@
+package org.httprobot.core.inet;
+
+import java.util.Vector;
+
+import org.httprobot.core.interfaces.IWebTabListener;
+
+public class HttpHandler implements Runnable 
+{
+	/**
+	 * HTTP address listeners.
+	 */
+	private Vector<IWebTabListener> web_tab_listeners = null;
+	
+	
+	public HttpHandler()
+	{
+		
+	}
+
+	
+
+	@Override
+	public void run() 
+	{
+		
+	}
+
+
+
+	public void setWeb_tab_listeners(Vector<IWebTabListener> web_tab_listeners) 
+	{
+		this.web_tab_listeners = web_tab_listeners;
+	}
+
+
+
+	public Vector<IWebTabListener> getWeb_tab_listeners() 
+	{
+		return web_tab_listeners;
+	}
+	
+	
+}

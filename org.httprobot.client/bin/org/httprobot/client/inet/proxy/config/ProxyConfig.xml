@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config:Config xmlns:config="http://httprobot/rml/config/" xmlns:datatype="http://httprobot/rml/datatypes/" xmlns:operator="http://httprobot/rml/datatypes/placeholders/operators" xmlns:placeholder="http://httprobot/rml/datatypes/placeholders" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://httprobot/rml/config/ ../../../../../../../org.httprobot.common/src/org/httprobot/common/xsd/RmlConfig.xsd http://httprobot/rml/datatypes/ ../../../../../../../org.httprobot.common/src/org/httprobot/common/xsd/RmlDatatypes.xsd http://httprobot/rml/datatypes/placeholders ../../../../../../../org.httprobot.common/src/org/httprobot/common/xsd/RmlPlaceholders.xsd http://httprobot/rml/datatypes/placeholders/operators ../../../../../../../org.httprobot.common/src/org/httprobot/common/xsd/RmlOperators.xsd ">
+	<config:serverInfo>
+		<datatype:dataView></datatype:dataView>
+		<datatype:steps>
+			<datatype:step>
+				<datatype:action>
+					<datatype:httpAddress>
+						datatype:httpAddress
+					</datatype:httpAddress>
+					<datatype:method>datatype:method</datatype:method>
+					<datatype:type>GET</datatype:type></datatype:action>
+				<datatype:fields>
+					<datatype:field></datatype:field></datatype:fields></datatype:step></datatype:steps></config:serverInfo></config:Config>

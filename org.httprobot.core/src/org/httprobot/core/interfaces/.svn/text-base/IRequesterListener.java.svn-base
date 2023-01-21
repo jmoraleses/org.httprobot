@@ -1,0 +1,8 @@
+package org.httprobot.core.interfaces;
+
+public interface IRequesterListener
+{
+
+	
+	
+}

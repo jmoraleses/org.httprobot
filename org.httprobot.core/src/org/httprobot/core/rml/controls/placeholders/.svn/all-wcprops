@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/httprobot/!svn/ver/2/org.httprobot.core/src/org/httprobot/core/rml/controls/placeholders
+END
+WebRequestControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/httprobot/!svn/ver/2/org.httprobot.core/src/org/httprobot/core/rml/controls/placeholders/WebRequestControl.java
+END
+WebResponseControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/httprobot/!svn/ver/2/org.httprobot.core/src/org/httprobot/core/rml/controls/placeholders/WebResponseControl.java
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/httprobot/!svn/ver/3/org.httprobot.core/src/org/httprobot/core/rml/operations
+END
+LoginRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/httprobot/!svn/ver/3/org.httprobot.core/src/org/httprobot/core/rml/operations/LoginRequest.java
+END
+ServerInfoResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/httprobot/!svn/ver/3/org.httprobot.core/src/org/httprobot/core/rml/operations/ServerInfoResponse.java
+END

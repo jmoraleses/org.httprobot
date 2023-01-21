@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/httprobot/!svn/ver/4/org.httprobot.core/src/org/httprobot/core/rml/controls/interfaces
+END
+IRmlDataTypeListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/httprobot/!svn/ver/3/org.httprobot.core/src/org/httprobot/core/rml/controls/interfaces/IRmlDataTypeListener.java
+END
+IRmlOperatorListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/httprobot/!svn/ver/3/org.httprobot.core/src/org/httprobot/core/rml/controls/interfaces/IRmlOperatorListener.java
+END
+IRmlPlaceholder.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/httprobot/!svn/ver/4/org.httprobot.core/src/org/httprobot/core/rml/controls/interfaces/IRmlPlaceholder.java
+END
+IRmlConfigListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/httprobot/!svn/ver/2/org.httprobot.core/src/org/httprobot/core/rml/controls/interfaces/IRmlConfigListener.java
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/httprobot/!svn/ver/4/org.httprobot.core/src/org/httprobot/core/data/view
+END
+ViewRow.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/httprobot/!svn/ver/4/org.httprobot.core/src/org/httprobot/core/data/view/ViewRow.java
+END
+ViewTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/httprobot/!svn/ver/6/org.httprobot.core/src/org/httprobot/core/data/view/ViewTable.java
+END
+ViewElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/httprobot/!svn/ver/6/org.httprobot.core/src/org/httprobot/core/data/view/ViewElement.java
+END
+ViewColumn.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/httprobot/!svn/ver/2/org.httprobot.core/src/org/httprobot/core/data/view/ViewColumn.java
+END
+ViewCell.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/httprobot/!svn/ver/4/org.httprobot.core/src/org/httprobot/core/data/view/ViewCell.java
+END

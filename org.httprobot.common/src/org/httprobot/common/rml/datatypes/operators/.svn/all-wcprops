@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/httprobot/!svn/ver/4/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators
+END
+Replace.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/httprobot/!svn/ver/5/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/Replace.java
+END
+Contains.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/httprobot/!svn/ver/4/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/Contains.java
+END
+Select.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/httprobot/!svn/ver/4/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/Select.java
+END
+Substring.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/httprobot/!svn/ver/5/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/Substring.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/httprobot/!svn/ver/1/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/package-info.java
+END
+StartIndex.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/httprobot/!svn/ver/5/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/StartIndex.java
+END
+Condition.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/httprobot/!svn/ver/3/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/Condition.java
+END
+XmlQuery.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/httprobot/!svn/ver/5/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/XmlQuery.java
+END
+Equals.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/httprobot/!svn/ver/5/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/Equals.java
+END
+Split.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/httprobot/!svn/ver/4/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/Split.java
+END
+Remove.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/httprobot/!svn/ver/4/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/Remove.java
+END
+EndIndex.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/httprobot/!svn/ver/4/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/EndIndex.java
+END
+Delimiters.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/httprobot/!svn/ver/3/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/Delimiters.java
+END
+ForEach.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/httprobot/!svn/ver/5/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/ForEach.java
+END
+TryParse.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/httprobot/!svn/ver/4/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/TryParse.java
+END
+Where.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/httprobot/!svn/ver/4/org.httprobot.common/src/org/httprobot/common/rml/datatypes/operators/Where.java
+END

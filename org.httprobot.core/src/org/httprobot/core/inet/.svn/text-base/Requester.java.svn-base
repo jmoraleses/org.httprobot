@@ -1,0 +1,463 @@
+package org.httprobot.core.inet;
+
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.UUID;
+import java.util.Vector;
+
+import org.httprobot.common.definitions.Enums.CliNamespace;
+import org.httprobot.common.definitions.Enums.CliOptions;
+import org.httprobot.common.definitions.Enums.WebRequesterEventType;
+import org.httprobot.common.events.CliEventArgs;
+import org.httprobot.common.events.RmlEventArgs;
+import org.httprobot.common.exceptions.InconsistenMessageException;
+import org.httprobot.common.exceptions.NotImplementedException;
+import org.httprobot.common.rml.config.Config;
+import org.httprobot.common.rml.datatypes.ServerInfo;
+import org.httprobot.core.events.WebRequesterEventArgs;
+import org.httprobot.core.interfaces.IRequesterListener;
+import org.httprobot.core.interfaces.IWebTabListener;
+import org.httprobot.core.rml.controls.config.ConfigControl;
+import org.httprobot.core.rml.controls.config.interfaces.IConfigListener;
+import org.httprobot.core.rml.controls.datatypes.ServerInfoControl;
+import org.w3c.dom.events.Event;
+
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.WebWindowEvent;
+import com.gargoylesoftware.htmlunit.WebWindowListener;
+
+/**
+ * Web requester class. Is {@link IWebTabListener}. 
+ * @author Joan 
+ */
+public class Requester implements 
+	IWebTabListener, WebWindowListener, IConfigListener
+{	
+	private static CliNamespace cli_namespace = CliNamespace.INET;
+	
+	private UUID uuid = null;
+	
+	private ArrayList<WebTab> web_tabs;	
+	private ArrayList<UUID> working_servers;
+	private Vector<IRequesterListener> web_requester_listeners;
+	private Config config;
+	private ConfigControl config_control;
+	private EnumSet<CliOptions> options;
+	private String destinationPath;
+	private Boolean isInherited;	
+	/**
+	 * @return the config_control {@link ConfigControl}  the configuration control
+	 */
+	public ConfigControl getConfig_control() {
+		return config_control;
+	}
+	/**
+	 * @return {@link Config} the configuration
+	 */
+	public Config getConfig()
+	{
+		return this.config;
+	}	
+	/**
+	 * WebRequester class constructor. Empty tabs.
+	 */
+	public Requester(IRequesterListener parent)
+	{	
+		this.web_tabs = new ArrayList<WebTab>();
+		this.working_servers = new ArrayList<UUID>();
+		this.web_requester_listeners = new Vector<IRequesterListener>();
+		this.addWebRequesterListener(parent);
+	}
+	/**
+	 * WebRequester default class constructor. Full tabs.
+	 */
+	public Requester(IRequesterListener parent, Config configuration)
+	{	
+		this.config = configuration;
+		
+		this.web_tabs = new ArrayList<WebTab>();
+		this.working_servers = new ArrayList<UUID>();
+		this.web_requester_listeners = new Vector<IRequesterListener>();
+		
+		this.addWebRequesterListener(parent);
+	}
+	/**
+	 * Adds {@link IWebTabListener} event listener.
+	 * @param listener {@link IWebTabListener} the listener
+	 */
+	public final synchronized void addWebRequesterListener(IRequesterListener listener)
+	{
+		this.web_requester_listeners.add(listener);
+	}
+	/**
+	 * Adds a new browser for a specific server.
+	 * @param serverInfo {@link ServerInfoControl}
+	 */
+	public void addWorking_server(ServerInfo serverInfo)
+	{
+		WebTab web_tab = new WebTab(this, BrowserVersion.FIREFOX_3_6, 
+				serverInfo.getUuid(), serverInfo);
+		
+		this.web_tabs.add(web_tab);
+		
+		WorkingServerAddedEvent(new WebRequesterEventArgs(serverInfo, 
+				WebRequesterEventType.ADDED));
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#getCliNamespace()
+	 */
+	@Override
+	public CliNamespace getCliNamespace() 
+	{
+		return Requester.cli_namespace;
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#getCliOptions()
+	 */
+	@Override
+	public EnumSet<CliOptions> getCliOptions()
+	{
+		return this.options;
+	}	
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#getDestinationPath()
+	 */
+	@Override
+	public String getDestinationPath() 
+	{
+		return this.destinationPath;
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IRmlListener#getInherited()
+	 */
+	@Override
+	public Boolean getInherited() 
+	{
+		return this.isInherited;
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IRmlListener#getUuid()
+	 */
+	@Override
+	public UUID getUuid() 
+	{
+		return this.uuid;
+	}
+	/**
+	 * Gets the web tabs.
+	 * @return {@link ArrayList} of {@link WebTab}
+	 */
+	public ArrayList<WebTab> getWeb_tabs() 
+	{
+		return this.web_tabs;
+	}
+	/**
+	 * Gets the count of WebTab.
+	 * @return {@link Integer} the web tabs count
+	 */
+	public Integer getWeb_tabs_count() 
+	{
+		return this.web_tabs.size();
+	}
+	/**
+	 * Gets current working servers.
+	 * @return {@link ArrayList} of {@link UUID}
+	 */
+	public ArrayList<UUID> getWorking_servers() 
+	{
+		return this.working_servers;
+	}
+	/* (non-Javadoc)
+	 * @see org.w3c.dom.events.EventListener#handleEvent(org.w3c.dom.events.Event)
+	 */
+	@Override
+	public void handleEvent(Event arg0) 
+	{
+	
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#OnCommandInput(java.lang.Object, org.httprobot.common.events.CliEventArgs)
+	 */
+	@Override
+	public void OnCommandInput(Object sender, CliEventArgs e) 
+	{
+		switch (e.getCmd()) 
+		{
+			case MESSAGE:
+				System.out.println("\n CLI message: \n" + e.getSource().toString() + "\n");
+				break;
+	
+			default:
+				break;
+		}
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#OnCommandOutput(java.lang.Object, org.httprobot.common.events.CliEventArgs)
+	 */
+	@Override
+	public void OnCommandOutput(Object sender, CliEventArgs e) 
+	{
+				
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.rml.controls.config.interfaces.IConfigControl#OnConfigChanged(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnConfigChanged(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.rml.controls.config.interfaces.IConfigControl#OnConfigInit(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnConfigInit(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.rml.controls.config.interfaces.IConfigControl#OnConfigLoaded(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnConfigLoaded(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException
+	{
+		System.out.println("Config loaded");
+		this.config_control.setIsRendered(true);
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.rml.controls.config.interfaces.IConfigControl#OnConfigRead(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnConfigRead(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.rml.controls.config.interfaces.IConfigControl#OnConfigRendered(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnConfigRendered(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException 
+	{
+		System.out.println("\nRequester.ConfigRendered\n");
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.rml.controls.config.interfaces.IConfigControl#OnConfigWrite(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnConfigWrite(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IRmlListener#OnControlChanged(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnControlChanged(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException 
+	{
+		System.out.println("\nCHANGED MAMON\n");
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IRmlListener#OnControlInit(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnControlInit(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IRmlListener#OnControlLoaded(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnControlLoaded(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IRmlListener#OnControlRead(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnControlRead(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IRmlListener#OnControlRendered(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnControlRendered(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IRmlListener#OnControlWrite(java.lang.Object, org.httprobot.common.events.RmlEventArgs)
+	 */
+	@Override
+	public void OnControlWrite(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException 
+	{
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.interfaces.IWebTabListener#OnWebTabAddressChanged(java.lang.Object, org.httprobot.common.events.InetEventArgs)
+	 */
+	@Override
+	public void OnWebTabAddressChanged(Object sender, WebRequesterEventArgs e)
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.interfaces.IWebTabListener#OnWebTabCompleted(java.lang.Object, org.httprobot.common.events.InetEventArgs)
+	 */
+	@Override
+	public void OnWebTabCompleted(Object sender, WebRequesterEventArgs e) 
+	{
+		ResponseReceivedEvent(e);
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.interfaces.IWebTabListener#OnWebTabStarted(java.lang.Object, org.httprobot.common.events.InetEventArgs)
+	 */
+	@Override
+	public void OnWebTabStarted(Object sender, WebRequesterEventArgs e) 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.core.interfaces.IWebTabListener#OnWebTabStopped(java.lang.Object, org.httprobot.common.events.InetEventArgs)
+	 */
+	@Override
+	public void OnWebTabStopped(Object sender, WebRequesterEventArgs e) 
+	{
+		switch (e.getIet()) 
+		{
+			case ERROR:
+				WebTab currentWebTab = WebTab.class.cast(sender);
+				currentWebTab.refresh();
+				break;
+	
+			default:
+				break;
+		}
+	}
+	/**
+	 * Removes {@link IWebTabListener} event listener.
+	 * @param listener {@link IWebTabListener} the listener
+	 */
+	public final synchronized void removeWebRequesterListener(IRequesterListener listener)
+	{
+		this.web_requester_listeners.remove(listener);
+	}
+	/**
+	 * Removes working server.
+	 * @param serverInfo {@link ServerInfoControl}
+	 */
+	public void removeWorking_server(UUID serverInfoUuid)
+	{
+		this.working_servers.remove(serverInfoUuid);
+		
+		for(WebTab web_tab : this.web_tabs)
+		{
+			if(web_tab.getServerInfoControl().getUuid().equals(serverInfoUuid))
+			{
+				this.web_tabs.remove(web_tab);
+				break;
+			}
+		}	
+		WorkingServerAddedEvent(new WebRequesterEventArgs(serverInfoUuid, WebRequesterEventType.REMOVED));
+	}
+	/**
+	 * Fires WebTabAdded event to listeners.
+	 * @param e {@link WebRequesterEventArgs} the arguments
+	 */
+	protected final void ResponseReceivedEvent(WebRequesterEventArgs e) 
+	{
+		for (IRequesterListener listener : this.web_requester_listeners) 
+		{
+			listener.OnResponseReceived(this, e);
+		}
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#setCliOptions(java.util.EnumSet)
+	 */
+	@Override
+	public void setCliOptions(EnumSet<CliOptions> options)
+	{
+		this.options = options;		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#setDestinationPath(java.lang.String)
+	 */
+	@Override
+	public void setDestinationPath(String destinationPath) 
+	{
+		this.destinationPath = destinationPath;
+	}
+	/**
+	 * Starts sequence process
+	 */
+	public void start()
+	{
+		this.config_control = new ConfigControl(this, this.config);
+		this.config_control.addConfigListener(this);
+		
+		this.config.getServerInfo().get(0).setLastUpdate("BALBALBLABLA");
+		this.config_control.setMessage(this.config);
+	}
+	/* (non-Javadoc)
+	 * @see com.gargoylesoftware.htmlunit.WebWindowListener#webWindowClosed(com.gargoylesoftware.htmlunit.WebWindowEvent)
+	 */
+	@Override
+	public void webWindowClosed(WebWindowEvent event) 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see com.gargoylesoftware.htmlunit.WebWindowListener#webWindowContentChanged(com.gargoylesoftware.htmlunit.WebWindowEvent)
+	 */
+	@Override
+	public void webWindowContentChanged(WebWindowEvent event)
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see com.gargoylesoftware.htmlunit.WebWindowListener#webWindowOpened(com.gargoylesoftware.htmlunit.WebWindowEvent)
+	 */
+	@Override
+	public void webWindowOpened(WebWindowEvent event) 
+	{
+		System.out.println(event.getNewPage().toString());
+	}
+	/**
+	 * Fires WebTabAdded event to listeners.
+	 * @param e {@link WebRequesterEventArgs} the arguments
+	 */
+	protected final void WorkingServerAddedEvent(WebRequesterEventArgs e) 
+	{
+		for (IRequesterListener listener : this.web_requester_listeners) 
+		{
+			listener.OnWorkingServerAdded(this, e);
+		}
+	}
+	/**
+	 * Fires WebTabRemoved event to listeners.
+	 * @param e {@link WebRequesterEventArgs} the arguments
+	 */
+	protected final void WorkingServerRemovedEvent(WebRequesterEventArgs e) 
+	{
+		for (IRequesterListener listener : this.web_requester_listeners) 
+		{
+			listener.OnWorkingServerRemoved(this, e);
+		}
+	}
+}

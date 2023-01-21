@@ -1,0 +1,381 @@
+package org.httprobot.core.inet;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.EnumSet;
+import java.util.UUID;
+import java.util.Vector;
+
+import org.httprobot.common.definitions.Enums.CliNamespace;
+import org.httprobot.common.definitions.Enums.RuntimeOptions;
+import org.httprobot.common.definitions.Enums.WebRequesterEventType;
+import org.httprobot.common.events.CliEventArgs;
+import org.httprobot.common.events.RmlEventArgs;
+import org.httprobot.common.exceptions.InconsistenMessageException;
+import org.httprobot.common.exceptions.NotImplementedException;
+import org.httprobot.common.interfaces.IRmlListener;
+import org.httprobot.common.rml.datatypes.ServerInfo;
+import org.httprobot.core.events.WebRequesterEventArgs;
+import org.httprobot.core.interfaces.IWebTabListener;
+import org.httprobot.core.requester.Requester;
+import org.httprobot.core.rml.controls.datatypes.ServerInfoControl;
+import org.w3c.dom.events.Event;
+
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.WebWindowEvent;
+import com.gargoylesoftware.htmlunit.WebWindowListener;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
+
+/**
+ * Web Tab class. Inherits {@link WebClient}. Is {@link WebWindowListener}.
+ * @author Joan
+ *
+ */
+public class WebTab extends WebClient implements WebWindowListener, IRmlListener
+{
+	/**
+	 * 1000671316568198372L
+	 */
+	private static final long serialVersionUID = 1000671316568198372L;
+	private static final CliNamespace cliNamespace = CliNamespace.INET;
+	private UUID uuid = null;
+	private String httpAddress = null;
+	private HtmlPage currentPage = null;
+	private BrowserVersion browser_version = null;
+	private ServerInfoControl serverInfoControl = null;
+	private ServerInfo serverInfo = null;
+	private String destinationPath = null;
+	/**
+	 * HTTP address listeners.
+	 */
+	private Vector<IWebTabListener> web_tab_listeners = null;
+	/**
+	 * WebTab class constructor.
+	 * @param parent {@link IWebTabListener} the parent
+	 * @param serverUuid {@link UUID} the current working server.
+	 * @param browser_version {@link BrowserVersion} the version of the current web tab
+	 * @param uuid {@link Integer} the ID 
+	 * @param httpAddress {@link String} the HTTP address
+	 */
+	public WebTab(Requester parent, BrowserVersion browser_version, UUID uuid, ServerInfo serverInfo) 
+	{
+		super(browser_version);
+		this.web_tab_listeners = new Vector<IWebTabListener>();
+		this.addWebWindowListener(this);
+//		this.addWebWindowListener(parent);
+//		this.addWebTabListener(parent);
+		this.uuid = uuid;
+		this.serverInfo = serverInfo;
+		this.serverInfoControl = new ServerInfoControl(this, serverInfo);
+	}
+	/**
+	 * Adds {@link IRmlListener} Command event listener.
+	 * @param listener {@link IRmlListener} the listener
+	 */
+	public final synchronized void addWebTabListener(IWebTabListener listener)
+	{
+		this.web_tab_listeners.add(listener);
+	}
+	/**
+	 * Gets the browser version.
+	 * @return {@link BrowserVersion} the browser version
+	 */
+	public BrowserVersion getBrowser_version() {
+		return this.browser_version;
+	}	
+	@Override
+	public CliNamespace getCliNamespace() 
+	{
+		return cliNamespace;
+	}
+	
+	@Override
+	public EnumSet<RuntimeOptions> getCliOptions() 
+	{
+		return null;
+	}
+	/**
+	 * Gets the current page.
+	 * @return {@link HtmlPage} the current page
+	 */
+	public HtmlPage getCurrentPage() 
+	{
+		return this.currentPage;
+	}
+	@Override
+	public String getDestinationPath()
+	{
+		return this.destinationPath;
+	}
+	/**
+	 * Gets the current HTTP address.
+	 * @return {@link String} the HTTP address
+	 */
+	public String getHttpAddress() 
+	{
+		return this.httpAddress;
+	}
+	/**
+	 * Gets the ID of current tab.
+	 * @return {@link Integer} the ID
+	 */
+	public UUID getID() {
+		return this.uuid;
+	}
+	@Override
+	public Boolean getInherited()
+	{
+		return null;
+	}
+	/**
+	 * @return the serverInfoControl
+	 */
+	public ServerInfoControl getServerInfoControl() {
+		return serverInfoControl;
+	}
+	@Override
+	public UUID getUuid()
+	{
+		return null;
+	}	
+	@Override
+	public void handleEvent(Event arg0) 
+	{
+		
+	}	
+	@Override
+	public void OnCommandInput(Object sender, CliEventArgs e)
+	{
+		switch (e.getCmd()) 
+		{
+		case RUN_WEB_REQUEST:
+			
+			break;
+		case TREAT_WEB_RESPONSE:
+			break;
+
+		default:
+			break;
+		}
+	}
+	@Override
+	public void OnCommandOutput(Object sender, CliEventArgs e) 
+	{
+		
+	}
+	@Override
+	public void OnControlChanged(Object sender, RmlEventArgs e)
+			throws NotImplementedException 
+	{
+		
+	}
+	@Override
+	public void OnControlInit(Object sender, RmlEventArgs e)
+			throws NotImplementedException 
+	{
+
+	}
+	@Override
+	public void OnControlLoaded(Object sender, RmlEventArgs e)
+			throws NotImplementedException {
+
+	}
+	@Override
+	public void OnControlRead(Object sender, RmlEventArgs e)
+			throws NotImplementedException, InconsistenMessageException 
+	{
+		
+	}
+	@Override
+	public void OnControlRendered(Object sender, RmlEventArgs e)
+			throws NotImplementedException 
+	{
+
+	}
+	@Override
+	public void OnControlWrite(Object sender, RmlEventArgs e)
+			throws NotImplementedException
+	{
+				
+	}
+	/**
+	 * Refresh current request 
+	 */
+	public void refresh()
+	{
+		setHttpAddress(this.httpAddress);
+	}
+	/**
+	 * Removes {@link IRmlListener} Command event listener.
+	 * @param listener {@link IRmlListener} the listener
+	 */
+	public final synchronized void removeWebTabListener(IWebTabListener listener)
+	{
+		web_tab_listeners.remove(listener);
+	}
+	/**
+	 * Sends a request.
+	 * @param httpAddress
+	 */
+	public void SendRequest(String httpAddress) {
+		try 
+		{
+			this.getOptions().setJavaScriptEnabled(false);
+			this.getOptions().setAppletEnabled(false);
+			this.getOptions().setPopupBlockerEnabled(true);
+			this.getOptions().setActiveXNative(false);
+			
+			try 
+			{
+				Thread.sleep(5000);
+			}
+			catch (InterruptedException e) 
+			{
+				e.printStackTrace();
+			}
+			
+			this.currentPage = HtmlPage.class.cast(this.getPage(httpAddress));
+			WebTabCompletedEvent(new WebRequesterEventArgs(this.currentPage, WebRequesterEventType.COMPLETED));
+		}
+		catch (FailingHttpStatusCodeException ex1) 
+		{
+			ex1.printStackTrace();
+			WebTabStoppedEvent(new WebRequesterEventArgs(this, WebRequesterEventType.ERROR));
+		}
+		catch (MalformedURLException ex2) 
+		{
+			ex2.printStackTrace();
+			WebTabStoppedEvent(new WebRequesterEventArgs(this, WebRequesterEventType.ERROR));
+		} 
+		catch (IOException ex3) 
+		{
+			ex3.printStackTrace();
+			WebTabStoppedEvent(new WebRequesterEventArgs(this, WebRequesterEventType.ERROR));
+		}
+		finally
+		{
+//			WebTabStoppedEvent(new WebRequesterEventArgs(this, WebRequesterEventType.ERROR));
+		}
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#setCliOptions(java.util.EnumSet)
+	 */
+	@Override
+	public void setCliOptions(EnumSet<RuntimeOptions> options) 
+	{
+		
+	}
+	/* (non-Javadoc)
+	 * @see org.httprobot.common.interfaces.IListener#setDestinationPath(java.lang.String)
+	 */
+	@Override
+	public void setDestinationPath(String destinationPath)
+	{
+		this.destinationPath = destinationPath;
+	}
+	/**
+	 * Sets the HTTP address.
+	 * @param httpAddress {@link String} the HTTP address
+	 */
+	public void setHttpAddress(String httpAddress) 
+	{
+		WebTabAddressChangedEvent(new WebRequesterEventArgs(this, WebRequesterEventType.STARTED));
+		this.httpAddress = httpAddress;
+		
+		try 
+		{
+			SendRequest(httpAddress);
+		} 
+		catch (FailingHttpStatusCodeException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * Starts process.
+	 */
+	public void start() 
+	{
+		setHttpAddress(serverInfo.getServerUrl());
+		
+		this.serverInfoControl.setMessage(serverInfo);
+	}
+	/**
+	 * Fires HttpAddressChanged event to listeners.
+	 * @param e {@link RmlEventArgs} the arguments
+	 */
+	protected final void WebTabAddressChangedEvent(WebRequesterEventArgs e) 
+	{
+		for (IWebTabListener listener : this.web_tab_listeners) 
+		{
+			try 
+			{
+				listener.OnWebTabAddressChanged(this, e);
+			}
+			catch (NotImplementedException ex1) 
+			{
+				ex1.printStackTrace();
+			}
+		}
+	}
+	/**
+	 * Fires  WebRequestCompleted event to listeners.
+	 * @param e {@link WebRequesterEventArgs}  the arguments
+	 */
+	protected final void WebTabCompletedEvent(WebRequesterEventArgs e) 
+	{
+		for (IWebTabListener listener : this.web_tab_listeners) 
+		{
+			listener.OnWebTabCompleted(this, e);
+		}
+	}
+
+	/**
+	 * Fires  WebRequestStarted event to listeners.
+	 * @param e {@link WebRequesterEventArgs}  the arguments
+	 */
+	protected final void WebTabStartedEvent(WebRequesterEventArgs e) 
+	{
+		for (IWebTabListener listener : this.web_tab_listeners) 
+		{
+			listener.OnWebTabStarted(this, e);
+		}
+	}
+	/**
+	 * Fires  WebRequestStopped event to listeners.
+	 * @param e {@link WebRequesterEventArgs}  the arguments
+	 */
+	protected final void WebTabStoppedEvent(WebRequesterEventArgs e) 
+	{
+		for (IWebTabListener listener : this.web_tab_listeners) 
+		{
+			listener.OnWebTabStopped(this, e);
+		}
+	}
+	/* (non-Javadoc)
+	 * @see com.gargoylesoftware.htmlunit.WebWindowListener#webWindowClosed(com.gargoylesoftware.htmlunit.WebWindowEvent)
+	 */
+	@Override
+	public void webWindowClosed(WebWindowEvent event) 
+	{	
+		//TODO webWindowsClosed
+	}
+	/* (non-Javadoc)
+	 * @see com.gargoylesoftware.htmlunit.WebWindowListener#webWindowContentChanged(com.gargoylesoftware.htmlunit.WebWindowEvent)
+	 */
+	@Override
+	public void webWindowContentChanged(WebWindowEvent event) 
+	{
+		//TODO webWindowsContentChanged
+	}
+	/* (non-Javadoc)
+	 * @see com.gargoylesoftware.htmlunit.WebWindowListener#webWindowOpened(com.gargoylesoftware.htmlunit.WebWindowEvent)
+	 */
+	@Override
+	public void webWindowOpened(WebWindowEvent event) 
+	{
+		//TODO WebWindowOpened
+	}
+}

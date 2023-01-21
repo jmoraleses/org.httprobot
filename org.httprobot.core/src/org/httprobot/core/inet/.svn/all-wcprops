@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/httprobot/!svn/ver/4/org.httprobot.core/src/org/httprobot/core/inet
+END
+InetDiagram.ucls
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/inet/InetDiagram.ucls
+END
+HttpHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/httprobot/!svn/ver/2/org.httprobot.core/src/org/httprobot/core/inet/HttpHandler.java
+END
+Requester.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/httprobot/!svn/ver/4/org.httprobot.core/src/org/httprobot/core/inet/Requester.java
+END
+WebTab.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/httprobot/!svn/ver/6/org.httprobot.core/src/org/httprobot/core/inet/WebTab.java
+END
+WebRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/httprobot/!svn/ver/1/org.httprobot.core/src/org/httprobot/core/inet/WebRequest.java
+END
